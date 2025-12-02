@@ -152,9 +152,39 @@
     .hero {
       padding: 60px 0 40px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 36px;
       align-items: start;
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 16px;
+    }
+
+    .partner-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .partner-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #f9fbff;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .partner-tag img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
     }
 
     .badge {
@@ -404,8 +434,8 @@
     }
 
     .form-card {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: linear-gradient(145deg, rgba(24, 85, 132, 0.05), rgba(233, 181, 56, 0.06)), #f6f9ff;
+      border: 1px solid #d7e3f4;
       padding: 24px;
       border-radius: 18px;
       box-shadow: var(--shadow);
@@ -414,6 +444,74 @@
     .hero-side {
       display: grid;
       gap: 14px;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.5);
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 20;
+    }
+
+    .modal-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal {
+      background: #fff;
+      border-radius: 16px;
+      max-width: 520px;
+      width: 100%;
+      padding: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 12px;
+    }
+
+    .modal header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal h3 {
+      margin: 0;
+    }
+
+    .modal button.close {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 12px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .hero-form-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .hero-form-title h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .sub-note {
+      color: var(--muted);
+      margin: 0 0 14px;
+      font-size: 0.95rem;
     }
 
     .confidence {
@@ -449,153 +547,6 @@
       gap: 10px;
     }
 
-    /* Audience spotlight */
-    .audience-section {
-      margin: 40px 0 16px;
-    }
-
-    .audience-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 26px;
-      align-items: stretch;
-      background: linear-gradient(135deg, rgba(24, 85, 132, 0.06), rgba(233, 181, 56, 0.08));
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: clamp(18px, 4vw, 28px);
-      box-shadow: var(--shadow);
-    }
-
-    .audience-copy {
-      display: grid;
-      gap: 10px;
-    }
-
-    .audience-copy h3 {
-      margin: 0;
-      font-size: clamp(1.7rem, 3vw, 2rem);
-    }
-
-    .audience-copy .lead {
-      margin: 0;
-    }
-
-    .audience-warning {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: #fff7ec;
-      color: #b45309;
-      border: 1px solid #fed7aa;
-      font-weight: 600;
-      width: fit-content;
-    }
-
-    .audience-steps {
-      list-style: none;
-      padding: 0;
-      margin: 12px 0 0;
-      display: grid;
-      gap: 12px;
-    }
-
-    .audience-step {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 12px;
-      padding: 14px 16px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: #fff;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-      cursor: pointer;
-    }
-
-    .audience-step .icon-circle {
-      width: 36px;
-      height: 36px;
-      font-size: 1rem;
-      background: rgba(24, 85, 132, 0.08);
-    }
-
-    .audience-step h4 {
-      margin: 0 0 6px;
-      font-size: 1.05rem;
-    }
-
-    .audience-step p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .audience-step.active {
-      border-color: rgba(24, 85, 132, 0.3);
-      box-shadow: 0 14px 30px rgba(24, 85, 132, 0.12);
-      transform: translateY(-2px);
-    }
-
-    .audience-visual {
-      position: relative;
-      overflow: hidden;
-      border-radius: 16px;
-      background: #fff;
-      border: 1px solid var(--border);
-      box-shadow: 0 14px 30px rgba(15, 27, 57, 0.08);
-      min-height: 320px;
-      display: grid;
-      align-items: stretch;
-    }
-
-    .audience-visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: opacity 0.4s ease;
-    }
-
-    .audience-tag {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      padding: 8px 12px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid var(--border);
-      font-weight: 700;
-      color: var(--accent-2);
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .audience-indicators {
-      position: absolute;
-      bottom: 14px;
-      left: 14px;
-      right: 14px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
-
-    .audience-indicators span {
-      height: 5px;
-      border-radius: 999px;
-      background: rgba(24, 85, 132, 0.2);
-      overflow: hidden;
-    }
-
-    .audience-indicators span .fill {
-      display: block;
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent), var(--accent-strong));
-      width: 0%;
-      transition: width 0.3s linear;
-    }
 
     .testimonial-showcase {
       display: grid;
@@ -825,13 +776,6 @@
         order: 2;
       }
 
-      .audience-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .audience-visual {
-        min-height: 260px;
-      }
     }
 
     @media (max-width: 900px) {
@@ -885,26 +829,6 @@
         flex-direction: column;
       }
 
-      .audience-step {
-        display: none;
-      }
-
-      .audience-step.active {
-        display: grid;
-      }
-
-      .audience-warning {
-        width: 100%;
-      }
-
-      .audience-indicators {
-        position: static;
-        margin-top: 12px;
-      }
-
-      .audience-visual {
-        min-height: 220px;
-      }
     }
   </style>
 </head>
@@ -922,10 +846,10 @@
       <nav class="nav" aria-label="Primary">
         <ul class="nav-links">
           <li><a href="#services">Services</a></li>
-          <li><a href="#process">Process</a></li>
+          <li><a href="#why">Why Saletify</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#clients">Clients</a></li>
-          <li><a href="#case-studies">Case Studies</a></li>
-          <li><a href="#results">Results</a></li>
+          <li><a href="#reviews">Reviews</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-actions">
@@ -939,74 +863,92 @@
 
   <main class="container">
     <section class="hero" id="top">
-      <div>
-        <div class="badge">Full-funnel growth marketing for ambitious brands</div>
-        <h1>Digital marketing that fuels revenue, not just impressions.</h1>
-        <p class="lead">Partner with Saletify’s certified strategists for performance-driven SEO, paid media, and experience design crafted to convert. We combine data, creativity, and relentless optimization to keep you ahead of the curve.</p>
+      <div class="hero-copy">
+        <div class="badge">Conversion-led marketing for teams that need results now</div>
+        <h1>Clear strategy. Faster execution. More revenue.</h1>
+        <p class="lead">Saletify pairs certified channel experts with CRO-led creative to turn traffic into sales. Minimal fluff, maximum clarity, and a partner who reports on revenue—not vanity metrics.</p>
+        <div class="partner-row" aria-label="Partner badges">
+          <span class="partner-tag"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Meta" />Meta Ads Partner</span>
+          <span class="partner-tag"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" />Google Ads</span>
+          <span class="partner-tag"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" />Amazon Ads</span>
+        </div>
         <div class="pill-list">
           <span class="pill">Performance SEO</span>
-          <span class="pill">Conversion-led PPC</span>
-          <span class="pill">Experience Design</span>
+          <span class="pill">High-ROAS PPC</span>
+          <span class="pill">Conversion Design</span>
           <span class="pill">Analytics & CRO</span>
         </div>
         <div class="cta-bar">
-          <a class="btn btn-primary" href="#hero-form">Launch a campaign</a>
-          <a class="btn btn-outline" href="#services">Explore solutions</a>
+          <a class="btn btn-primary" href="#hero-form">Start my growth plan</a>
+          <a class="btn btn-outline" href="#services">View services</a>
         </div>
         <div class="hero-grid">
           <div class="stat">
-            <span class="stat-label">Avg. Increase in MQLs</span>
+            <span class="stat-label">MQL growth</span>
             <span class="stat-value">+48%</span>
-            <small class="muted">within the first 90 days</small>
+            <small class="muted">average within 90 days</small>
           </div>
           <div class="stat">
-            <span class="stat-label">Ad Spend Managed</span>
+            <span class="stat-label">Experience</span>
+            <span class="stat-value">10+ yrs</span>
+            <small class="muted">full-funnel performance</small>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Managed ad spend</span>
             <span class="stat-value">$25M+</span>
-            <small class="muted">across B2B &amp; ecommerce</small>
+            <small class="muted">across B2B & D2C</small>
           </div>
           <div class="stat">
-            <span class="stat-label">Conversion Uplift</span>
-            <span class="stat-value">2.4x</span>
-            <small class="muted">average CRO impact</small>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Client Satisfaction</span>
+            <span class="stat-label">Client happiness</span>
             <span class="stat-value">4.9/5</span>
-            <small class="muted">based on quarterly NPS</small>
+            <small class="muted">quarterly NPS</small>
           </div>
         </div>
       </div>
       <div class="hero-side">
         <div class="form-card" id="hero-form">
-          <div class="badge" style="background:rgba(255,107,53,0.12); color:var(--accent);">Start with a quick brief</div>
-          <h3 style="margin:12px 0 6px;">Get a tailored growth plan</h3>
-          <p class="lead" style="font-size:0.98rem; margin-bottom:12px;">Tell us about your goals and we’ll share the fastest path to measurable revenue.</p>
+          <div class="hero-form-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 7h16M4 12h16M4 17h10" stroke="#185584" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <h3>Book a demo</h3>
+          </div>
+          <p class="sub-note">Join 300+ growth-focused brands that trust Saletify for accountable marketing.</p>
           <form action="https://formspree.io/f/xkgnkvpk" method="POST">
             <div class="form-grid">
               <div>
-                <label for="hero-name">Full name</label>
-                <input type="text" id="hero-name" name="name" placeholder="Alex Smith" required />
+                <label for="hero-first">First name</label>
+                <input type="text" id="hero-first" name="first" placeholder="Alex" required />
               </div>
               <div>
-                <label for="hero-email">Work email</label>
-                <input type="email" id="hero-email" name="email" placeholder="you@company.com" required />
+                <label for="hero-last">Last name</label>
+                <input type="text" id="hero-last" name="last" placeholder="Smith" />
               </div>
+            </div>
+            <div>
+              <label for="hero-email">Work email</label>
+              <input type="email" id="hero-email" name="email" placeholder="you@company.com" required />
+            </div>
+            <div>
+              <label for="hero-phone">Phone number</label>
+              <input type="tel" id="hero-phone" name="phone" placeholder="(+91) 85306 66677" required />
+            </div>
+            <div>
+              <label for="hero-company">Company name</label>
+              <input type="text" id="hero-company" name="company" placeholder="Your brand" />
             </div>
             <div>
               <label for="hero-service">Primary goal</label>
               <select id="hero-service" name="service">
                 <option>Scale qualified leads</option>
-                <option>Reduce CAC & improve ROAS</option>
-                <option>Build conversion-first experiences</option>
-                <option>Track & report revenue impact</option>
+                <option>Protect ROAS while scaling</option>
+                <option>Improve conversion rates</option>
+                <option>Analytics & reporting clarity</option>
               </select>
             </div>
-            <div>
-              <label for="hero-message">What’s your timeline?</label>
-              <textarea id="hero-message" name="message" placeholder="Share launch dates, budgets, and success metrics"></textarea>
-            </div>
-            <button class="btn btn-primary" type="submit">Send my enquiry</button>
+            <button class="btn btn-primary" type="submit" style="width:100%;">Submit</button>
           </form>
+          <p class="muted" style="margin:10px 0 0; font-size:0.9rem;">We respond in under 24 hours. No spam—just a clear next step.</p>
         </div>
         <div class="confidence">
           <div>
@@ -1015,63 +957,138 @@
           </div>
           <div>
             <strong>Under 24 hrs</strong>
-            <p class="muted">to receive your bespoke plan</p>
+            <p class="muted">to receive your tailored plan</p>
           </div>
           <div>
-            <strong>Dedicated pod</strong>
-            <p class="muted">strategist, creatives & analysts</p>
+            <strong>Multi-industry</strong>
+            <p class="muted">playbooks for B2B, ecommerce, and SaaS</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="audience-section" id="audience">
-      <div class="audience-grid">
-        <div class="audience-copy">
-          <div class="badge">Target Audience</div>
-          <h3>Who Saletify is perfect for.</h3>
-          <p class="lead">We work best with teams that crave measurable, fast-moving growth but need a trusted partner to execute end-to-end.</p>
-          <div class="audience-warning">⚠️ Warning: We won’t slow you down—only high-intent teams ready to scale.</div>
-          <ul class="audience-steps">
-            <li class="audience-step active" data-image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=70" data-alt="Founder reviewing growth dashboards with laptop and charts">
-              <div class="icon-circle">🚀</div>
-              <div>
-                <h4>Founders & CXOs moving fast</h4>
-                <p>Ambitious leaders who need a revenue partner, not just an agency—weekly lifts, clear dashboards, and launch-ready squads.</p>
-              </div>
-            </li>
-            <li class="audience-step" data-image="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=70" data-alt="Marketing lead collaborating with team on creative boards">
-              <div class="icon-circle">📊</div>
-              <div>
-                <h4>Marketing leads under pressure</h4>
-                <p>Teams accountable to pipeline who want channel experts, CRO testing, and crisp reporting to defend every dollar.</p>
-              </div>
-            </li>
-            <li class="audience-step" data-image="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=900&q=70" data-alt="Product manager planning campaigns with tablet and mood boards">
-              <div class="icon-circle">🧭</div>
-              <div>
-                <h4>Product & category owners</h4>
-                <p>Builders launching new categories who need positioning, creative sprints, and full-funnel media to capture demand fast.</p>
-              </div>
-            </li>
+    <section id="services">
+      <div class="section-header">
+        <h2>Full-stack digital marketing services engineered for revenue.</h2>
+        <p class="lead">From search dominance to high-converting experiences, our specialists architect a cohesive growth engine so you can scale predictably.</p>
+      </div>
+      <div class="cards">
+        <div class="card service-card">
+          <div class="icon-circle">📈</div>
+          <h3>Performance SEO</h3>
+          <p>Technical foundations, content velocity, and backlink authority geared to rank and convert for the keywords that matter.</p>
+          <ul>
+            <li>Technical & on-page SEO sprints</li>
+            <li>Content strategy aligned to intent</li>
+            <li>Authority-building link programs</li>
           </ul>
         </div>
-        <div class="audience-visual">
-          <img id="audience-image" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=70" alt="Founder reviewing growth dashboards with laptop and charts" />
-          <div class="audience-tag">Growth pod in action</div>
-          <div class="audience-indicators" aria-hidden="true">
-            <span><span class="fill"></span></span>
-            <span><span class="fill"></span></span>
-            <span><span class="fill"></span></span>
+        <div class="card service-card">
+          <div class="icon-circle">⚡</div>
+          <h3>Paid Media & PPC</h3>
+          <p>Precision-targeted campaigns across search, social, and programmatic with conversion-focused creative and bidding.</p>
+          <ul>
+            <li>Google, Meta, LinkedIn & programmatic</li>
+            <li>Landing page experimentation & CRO</li>
+            <li>Always-on optimization playbooks</li>
+          </ul>
+        </div>
+        <div class="card service-card">
+          <div class="icon-circle">🧭</div>
+          <h3>Brand & Experience Design</h3>
+          <p>Memorable digital experiences that streamline the buyer journey and reinforce your category position.</p>
+          <ul>
+            <li>UX/UI for high-intent flows</li>
+            <li>Conversion-driven content design</li>
+            <li>Rapid prototyping & user testing</li>
+          </ul>
+        </div>
+        <div class="card service-card">
+          <div class="icon-circle">📊</div>
+          <h3>Analytics & CRO</h3>
+          <p>Data infrastructure, dashboards, and experimentation that show exactly what’s driving growth.</p>
+          <ul>
+            <li>GA4, Tag Manager & server-side tracking</li>
+            <li>A/B testing pipelines and insights</li>
+            <li>Revenue-focused reporting</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="banner grid-2">
+        <div>
+          <div class="badge">Why choose Saletify</div>
+          <h2>10 years of measurable growth expertise.</h2>
+          <p class="lead">We’re certified across Google, Meta, and Amazon with transparent reporting, sprint-based delivery, and creative that keeps conversions climbing.</p>
+          <div class="badge-grid">
+            <div class="mini-card">10+ years full-funnel delivery</div>
+            <div class="mini-card">Google & Meta certified</div>
+            <div class="mini-card">Dedicated strategist pods</div>
+            <div class="mini-card">Performance SLAs</div>
+          </div>
+          <div class="cta-bar" style="margin-top:18px;">
+            <a class="btn btn-primary" href="#contact">Talk to a strategist</a>
+            <a class="btn btn-outline" href="#services">See services</a>
           </div>
         </div>
+        <div class="hero-card">
+          <h3 style="margin-top:0;">How we operate</h3>
+          <ul style="color:var(--muted); line-height:1.8; padding-left:18px;">
+            <li>Discovery, roadmap, and quick-win sprints</li>
+            <li>Weekly experiment reviews with clear owners</li>
+            <li>Dashboards that tie every action to revenue</li>
+            <li>Quarterly growth models with budget scenarios</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="section-header">
+        <h2>See the work—unlock detailed portfolios.</h2>
+        <p class="lead">Preview recent wins, then submit the quick form to view the full breakdown, budgets, and playbooks.</p>
+      </div>
+      <div class="cards">
+        <div class="card" data-portfolio-title="Ecommerce fashion collective" data-portfolio-result="+112% revenue from paid search with CRO-led landing tests" data-portfolio-detail="Tiered bidding, feed optimization, and checkout CRO combined with creative refresh cycles.">
+          <div class="icon-circle">🛍️</div>
+          <h3>Fashion Collective</h3>
+          <p class="muted">Scaling ROAS while launching new lines.</p>
+          <button class="btn btn-outline view-portfolio" type="button">View details</button>
+        </div>
+        <div class="card" data-portfolio-title="Enterprise SaaS pipeline" data-portfolio-result="3x enterprise demos from ABM search and LinkedIn" data-portfolio-detail="Account-based messaging, custom landing journeys, and sales-enablement nurture.">
+          <div class="icon-circle">💼</div>
+          <h3>Workflow OS</h3>
+          <p class="muted">ABM that connects ads to booked demos.</p>
+          <button class="btn btn-outline view-portfolio" type="button">View details</button>
+        </div>
+        <div class="card" data-portfolio-title="D2C wellness" data-portfolio-result="42% lift in subscriber LTV" data-portfolio-detail="Creative testing, onboarding flows, and personalized offers informed by analytics.">
+          <div class="icon-circle">🌿</div>
+          <h3>Wellness Lab</h3>
+          <p class="muted">Conversion design that keeps customers returning.</p>
+          <button class="btn btn-outline view-portfolio" type="button">View details</button>
+        </div>
+        <div class="card" data-portfolio-title="Manufacturing lead engine" data-portfolio-result="38% more qualified MQLs" data-portfolio-detail="Search dominance, technical SEO, and CRO to capture high-intent buyers.">
+          <div class="icon-circle">🏗️</div>
+          <h3>Industrial Hub</h3>
+          <p class="muted">Performance marketing for complex sales cycles.</p>
+          <button class="btn btn-outline view-portfolio" type="button">View details</button>
+        </div>
+      </div>
+      <div class="hero-card" id="portfolio-detail" style="margin-top:18px; display:none;">
+        <div class="badge">Portfolio unlocked</div>
+        <h3 id="portfolio-title"></h3>
+        <p class="lead" id="portfolio-result"></p>
+        <p id="portfolio-description" class="muted"></p>
+        <a class="btn btn-primary" href="#contact">Book the same playbook</a>
       </div>
     </section>
 
     <section id="clients">
       <div class="section-header">
-        <h2>Trusted by brands that demand measurable growth.</h2>
-        <p class="lead">From enterprise leaders to fast-scaling innovators, Saletify partners with teams that want accountable marketing and transparent performance.</p>
+        <h2>Our happy clients</h2>
+        <p class="lead">Teams that count on Saletify for transparent reporting and measurable growth.</p>
       </div>
       <div class="client-grid">
         <div class="client-card">
@@ -1128,157 +1145,14 @@
         </div>
       </div>
       <div class="cta-bar" style="margin-top:24px;">
-        <a class="btn btn-primary" href="#hero-form">Get your growth plan</a>
-        <a class="btn btn-outline" href="#results">See our wins</a>
+        <a class="btn btn-primary" href="#contact">Start a project</a>
+        <a class="btn btn-outline" href="#reviews">Read reviews</a>
       </div>
     </section>
 
-    <section id="services">
+    <section id="reviews" class="slider-section">
       <div class="section-header">
-        <h2>Full-stack digital marketing services engineered for revenue.</h2>
-        <p class="lead">From search dominance to high-converting experiences, our specialists architect a cohesive growth engine so you can scale predictably.</p>
-      </div>
-      <div class="cards">
-        <div class="card service-card">
-          <div class="icon-circle">📈</div>
-          <h3>Performance SEO</h3>
-          <p>Technical foundations, content velocity, and backlink authority geared to rank and convert for the keywords that matter.</p>
-          <ul>
-            <li>Technical & on-page SEO sprints</li>
-            <li>Content strategy aligned to intent</li>
-            <li>Authority-building link programs</li>
-          </ul>
-        </div>
-        <div class="card service-card">
-          <div class="icon-circle">⚡</div>
-          <h3>Paid Media & PPC</h3>
-          <p>Precision-targeted campaigns across search, social, and programmatic with conversion-focused creative and bidding.</p>
-          <ul>
-            <li>Google, Meta, LinkedIn & programmatic</li>
-            <li>Landing page experimentation & CRO</li>
-            <li>Always-on optimization playbooks</li>
-          </ul>
-        </div>
-        <div class="card service-card">
-          <div class="icon-circle">🧭</div>
-          <h3>Brand & Experience Design</h3>
-          <p>Memorable digital experiences that streamline the buyer journey and reinforce your category position.</p>
-          <ul>
-            <li>UX/UI for high-intent flows</li>
-            <li>Conversion-driven content design</li>
-            <li>Rapid prototyping & user testing</li>
-          </ul>
-        </div>
-        <div class="card service-card">
-          <div class="icon-circle">📊</div>
-          <h3>Analytics & CRO</h3>
-          <p>Data infrastructure, dashboards, and experimentation that show exactly what’s driving growth.</p>
-          <ul>
-            <li>GA4, Tag Manager & server-side tracking</li>
-            <li>A/B testing pipelines and insights</li>
-            <li>Revenue-focused reporting</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="process">
-      <div class="section-header">
-        <h2>Our proven, transparent growth process.</h2>
-        <p class="lead">We operate as an extension of your team with weekly insights, monthly roadmaps, and a clear view of the metrics that matter.</p>
-      </div>
-      <div class="cards">
-        <div class="card">
-          <div class="icon-circle">🧠</div>
-          <h3>Discovery & Audit</h3>
-          <p>Deep dive into market, competitors, tracking, and funnel gaps to set a performance baseline.</p>
-        </div>
-        <div class="card">
-          <div class="icon-circle">🎯</div>
-          <h3>Strategy & Roadmap</h3>
-          <p>Build a prioritized action plan with channel mixes, budget allocation, and conversion milestones.</p>
-        </div>
-        <div class="card">
-          <div class="icon-circle">🚀</div>
-          <h3>Launch & Experiment</h3>
-          <p>Deploy campaigns, test creative, and refine landing experiences with rapid iteration.</p>
-        </div>
-        <div class="card">
-          <div class="icon-circle">📈</div>
-          <h3>Optimize & Scale</h3>
-          <p>Double down on winners, automate reporting, and expand into new markets with confidence.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="case-studies">
-      <div class="section-header">
-        <h2>Real outcomes our clients rely on.</h2>
-        <p class="lead">Case studies across ecommerce, SaaS, and enterprise brands delivering measurable impact.</p>
-      </div>
-      <div class="cards">
-        <div class="card">
-          <h3>eCommerce: Fashion Collective</h3>
-          <p class="lead">+112% revenue from paid search in 6 months.</p>
-          <ul>
-            <li>Introduced tiered bidding and shopping feed optimization</li>
-            <li>Rolled out CRO on checkout & product pages</li>
-            <li>Unified analytics across ads, email, and onsite</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>SaaS: Workflow OS</h3>
-          <p class="lead">3x pipeline from enterprise accounts.</p>
-          <ul>
-            <li>ABM-aligned LinkedIn and search plays</li>
-            <li>Intent-led content hubs with lead magnets</li>
-            <li>Multi-touch attribution dashboards</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>D2C: Wellness Lab</h3>
-          <p class="lead">42% lift in subscriber LTV.</p>
-          <ul>
-            <li>Creative testing across social & display</li>
-            <li>Improved onboarding flows and email drips</li>
-            <li>Segment-based offers & personalization</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="banner grid-2">
-        <div>
-          <div class="badge">Why Saletify</div>
-          <h2>Certified specialists backed by transparent reporting.</h2>
-          <p class="lead">Every engagement includes channel-certified experts, weekly performance labs, and real-time dashboards so you’re never guessing where growth comes from.</p>
-          <div class="badge-grid">
-            <div class="mini-card">Google & Meta certified</div>
-            <div class="mini-card">Industry-specific playbooks</div>
-            <div class="mini-card">Dedicated strategist</div>
-            <div class="mini-card">Performance SLAs</div>
-          </div>
-          <div class="cta-bar" style="margin-top:18px;">
-            <a class="btn btn-primary" href="#contact">Talk to a strategist</a>
-            <a class="btn btn-outline" href="#process">See how we work</a>
-          </div>
-        </div>
-        <div class="hero-card">
-          <h3 style="margin-top:0;">What you get</h3>
-          <ul style="color:var(--muted); line-height:1.8; padding-left:18px;">
-            <li>Weekly experiment reviews and action plans</li>
-            <li>Dashboard access tied to revenue metrics</li>
-            <li>Creative, media, and analytics specialists aligned to you</li>
-            <li>Quarterly growth models with budget scenarios</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="results" class="slider-section">
-      <div class="section-header">
-        <h2>See how companies like yours succeed with Saletify.</h2>
+        <h2>Customer reviews and results.</h2>
         <p class="lead">Momentum, revenue, and trust from teams who count on us to grow every quarter.</p>
       </div>
       <div class="testimonial-showcase">
@@ -1398,7 +1272,7 @@
               <strong>4.9/5</strong>
             </div>
             <h4>Tech & SaaS</h4>
-            <p>“Pipeline visibility and ABM messaging that converts.”</p>
+            <p>“ABM messaging and analytics we can defend in board meetings.”</p>
           </div>
         </div>
       </div>
@@ -1428,7 +1302,7 @@
             </div>
             <div>
               <label for="phone">Phone number</label>
-              <input type="tel" id="phone" name="phone" placeholder="(+1) 234 567 8901" />
+              <input type="tel" id="phone" name="phone" placeholder="(+1) 234 567 8901" required />
             </div>
             <div>
               <label for="service">Primary service</label>
@@ -1449,21 +1323,37 @@
         </div>
       </div>
     </section>
-
-    <section>
-      <div class="banner grid-2">
-        <div>
-          <div class="badge">Ready to accelerate?</div>
-          <h2>Let’s build your next growth story.</h2>
-          <p class="lead">From demand gen to conversion optimization, Saletify keeps your pipeline full and customers engaged.</p>
-        </div>
-        <div class="cta-bar" style="justify-content:flex-end; align-items:center;">
-          <a class="btn btn-outline" href="mailto:hello@saletify.com">hello@saletify.com</a>
-          <a class="btn btn-primary" href="#contact">Start a project</a>
-        </div>
-      </div>
-    </section>
   </main>
+
+  <div class="modal-overlay" id="portfolio-modal" aria-hidden="true">
+    <div class="modal">
+      <header>
+        <div>
+          <div class="badge" style="margin-bottom:6px;">Unlock full portfolio</div>
+          <h3 style="margin:0;">Tell us about you</h3>
+          <p class="muted" style="margin:4px 0 0;">Name, email, and phone are required to view detailed case work.</p>
+        </div>
+        <button class="close" type="button" aria-label="Close portfolio form">✕</button>
+      </header>
+      <form id="portfolio-form">
+        <div class="form-grid">
+          <div>
+            <label for="portfolio-name">Name</label>
+            <input type="text" id="portfolio-name" name="name" placeholder="Your name" required />
+          </div>
+          <div>
+            <label for="portfolio-email">Email</label>
+            <input type="email" id="portfolio-email" name="email" placeholder="you@company.com" required />
+          </div>
+        </div>
+        <div>
+          <label for="portfolio-phone">Contact number</label>
+          <input type="tel" id="portfolio-phone" name="phone" placeholder="(+91) 85306 66677" required />
+        </div>
+        <button class="btn btn-primary" type="submit" style="width:100%;">View portfolio</button>
+      </form>
+    </div>
+  </div>
 
   <footer>
     <div class="container footer-grid">
@@ -1490,8 +1380,8 @@
       <div>
         <h3>Company</h3>
         <ul class="foot-nav">
-          <li><a href="#process">How we work</a></li>
-          <li><a href="#case-studies">Case studies</a></li>
+          <li><a href="#why">How we work</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#contact">Get in touch</a></li>
         </ul>
       </div>
@@ -1523,68 +1413,58 @@
       );
     }
 
-    const audienceSection = document.querySelector('.audience-section');
-    if (audienceSection) {
-      const audienceSteps = audienceSection.querySelectorAll('.audience-step');
-      const audienceImage = audienceSection.querySelector('#audience-image');
-      const audienceFills = audienceSection.querySelectorAll('.audience-indicators .fill');
-      const audienceDuration = 3000;
-      let audienceIndex = 0;
-      let audienceTimer;
+    const portfolioModal = document.getElementById('portfolio-modal');
+    const portfolioForm = document.getElementById('portfolio-form');
+    const closeModalBtn = portfolioModal?.querySelector('button.close');
+    const detailCard = document.getElementById('portfolio-detail');
+    const detailTitle = document.getElementById('portfolio-title');
+    const detailResult = document.getElementById('portfolio-result');
+    const detailDescription = document.getElementById('portfolio-description');
+    let activePortfolio;
 
-      const animateProgress = () => {
-        audienceFills.forEach((fill) => {
-          fill.style.transitionDuration = '0ms';
-          fill.style.width = '0%';
-        });
+    const openModal = (card) => {
+      activePortfolio = card;
+      if (portfolioModal) {
+        portfolioModal.classList.add('show');
+        portfolioModal.setAttribute('aria-hidden', 'false');
+      }
+    };
 
-        requestAnimationFrame(() => {
-          audienceFills.forEach((fill, idx) => {
-            fill.style.transitionDuration = idx === audienceIndex ? `${audienceDuration}ms` : '200ms';
-            fill.style.width = idx === audienceIndex ? '100%' : '0%';
-          });
-        });
-      };
+    const closeModal = () => {
+      if (portfolioModal) {
+        portfolioModal.classList.remove('show');
+        portfolioModal.setAttribute('aria-hidden', 'true');
+      }
+    };
 
-      const updateImage = () => {
-        const activeStep = audienceSteps[audienceIndex];
-        if (!activeStep) return;
-        const nextSrc = activeStep.dataset.image;
-        const nextAlt = activeStep.dataset.alt || 'Saletify audience visual';
-        audienceImage.style.opacity = '0';
-        setTimeout(() => {
-          audienceImage.src = nextSrc;
-          audienceImage.alt = nextAlt;
-        }, 120);
-      };
-
-      audienceImage.addEventListener('load', () => {
-        audienceImage.style.opacity = '1';
+    document.querySelectorAll('.view-portfolio').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.card');
+        openModal(card);
       });
+    });
 
-      const setAudienceStep = (index) => {
-        audienceIndex = index;
-        audienceSteps.forEach((step, idx) => step.classList.toggle('active', idx === audienceIndex));
-        animateProgress();
-        updateImage();
-      };
+    closeModalBtn?.addEventListener('click', closeModal);
 
-      const nextAudienceStep = () => {
-        const nextIndex = (audienceIndex + 1) % audienceSteps.length;
-        setAudienceStep(nextIndex);
-      };
+    portfolioForm?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const name = portfolioForm.querySelector('#portfolio-name');
+      const email = portfolioForm.querySelector('#portfolio-email');
+      const phone = portfolioForm.querySelector('#portfolio-phone');
 
-      audienceSteps.forEach((step, idx) => {
-        step.addEventListener('click', () => {
-          clearInterval(audienceTimer);
-          setAudienceStep(idx);
-          audienceTimer = setInterval(nextAudienceStep, audienceDuration);
-        });
-      });
+      if (!name.value || !email.value || !phone.value) {
+        return;
+      }
 
-      setAudienceStep(0);
-      audienceTimer = setInterval(nextAudienceStep, audienceDuration);
-    }
+      if (activePortfolio && detailCard) {
+        detailTitle.textContent = activePortfolio.dataset.portfolioTitle;
+        detailResult.textContent = activePortfolio.dataset.portfolioResult;
+        detailDescription.textContent = activePortfolio.dataset.portfolioDetail;
+        detailCard.style.display = 'block';
+        closeModal();
+        detailCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
 
     const slider = document.querySelector('.testimonial-hero');
     if (slider) {
