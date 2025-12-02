@@ -169,6 +169,12 @@
       align-items: center;
     }
 
+    .partner-label {
+      font-weight: 700;
+      color: var(--accent-2);
+      letter-spacing: 0.4px;
+    }
+
     .partner-tag {
       display: inline-flex;
       align-items: center;
@@ -318,6 +324,82 @@
       letter-spacing: 0.3px;
     }
 
+    .client-showcase {
+      background: linear-gradient(160deg, rgba(24, 85, 132, 0.06), rgba(233, 181, 56, 0.12));
+      border: 1px solid rgba(24, 85, 132, 0.16);
+      border-radius: 24px;
+      padding: 26px;
+      display: grid;
+      grid-template-columns: minmax(260px, 340px) 1fr;
+      gap: 22px;
+      box-shadow: 0 20px 46px rgba(24, 85, 132, 0.16);
+      align-items: stretch;
+    }
+
+    .client-intro h3 {
+      margin: 8px 0;
+    }
+
+    .client-points {
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .client-rails {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+    }
+
+    .client-column {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(24, 85, 132, 0.14);
+      background: rgba(255, 255, 255, 0.72);
+      height: 320px;
+    }
+
+    .client-track {
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+      animation: marqueeDown 18s linear infinite;
+    }
+
+    .client-column.reverse .client-track {
+      animation-direction: reverse;
+    }
+
+    .client-logo-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 28px rgba(24, 85, 132, 0.14);
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .client-logo-card img {
+      width: 100%;
+      max-width: 120px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    @keyframes marqueeDown {
+      0% {
+        transform: translateY(-50%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
     .card {
       background: #fff;
       border: 1px solid var(--border);
@@ -398,6 +480,39 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 22px;
       align-items: center;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .why-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 14px 30px rgba(24, 85, 132, 0.08);
+      display: grid;
+      gap: 6px;
+    }
+
+    .why-card.accent {
+      background: linear-gradient(145deg, rgba(24, 85, 132, 0.08), rgba(233, 181, 56, 0.12));
+      border-color: rgba(24, 85, 132, 0.3);
+      box-shadow: 0 18px 38px rgba(24, 85, 132, 0.18);
+    }
+
+    .why-label {
+      color: var(--accent-2);
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+
+    .why-value {
+      font-size: 1.6rem;
+      font-weight: 700;
     }
 
     .form-grid {
@@ -822,6 +937,14 @@
       .navbar {
         position: relative;
       }
+
+      .client-showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .client-column {
+        height: 260px;
+      }
     }
 
     @media (max-width: 640px) {
@@ -868,41 +991,14 @@
         <h1>Clear strategy. Faster execution. More revenue.</h1>
         <p class="lead">Saletify pairs certified channel experts with CRO-led creative to turn traffic into sales. Minimal fluff, maximum clarity, and a partner who reports on revenue—not vanity metrics.</p>
         <div class="partner-row" aria-label="Partner badges">
+          <span class="partner-label">Partnered with</span>
           <span class="partner-tag"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Meta" />Meta Ads Partner</span>
           <span class="partner-tag"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" />Google Ads</span>
           <span class="partner-tag"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" />Amazon Ads</span>
         </div>
-        <div class="pill-list">
-          <span class="pill">Performance SEO</span>
-          <span class="pill">High-ROAS PPC</span>
-          <span class="pill">Conversion Design</span>
-          <span class="pill">Analytics & CRO</span>
-        </div>
         <div class="cta-bar">
           <a class="btn btn-primary" href="#hero-form">Start my growth plan</a>
           <a class="btn btn-outline" href="#services">View services</a>
-        </div>
-        <div class="hero-grid">
-          <div class="stat">
-            <span class="stat-label">MQL growth</span>
-            <span class="stat-value">+48%</span>
-            <small class="muted">average within 90 days</small>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Experience</span>
-            <span class="stat-value">10+ yrs</span>
-            <small class="muted">full-funnel performance</small>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Managed ad spend</span>
-            <span class="stat-value">$25M+</span>
-            <small class="muted">across B2B & D2C</small>
-          </div>
-          <div class="stat">
-            <span class="stat-label">Client happiness</span>
-            <span class="stat-value">4.9/5</span>
-            <small class="muted">quarterly NPS</small>
-          </div>
         </div>
       </div>
       <div class="hero-side">
@@ -1017,30 +1113,52 @@
     </section>
 
     <section id="why">
-      <div class="banner grid-2">
-        <div>
-          <div class="badge">Why choose Saletify</div>
-          <h2>10 years of measurable growth expertise.</h2>
-          <p class="lead">We’re certified across Google, Meta, and Amazon with transparent reporting, sprint-based delivery, and creative that keeps conversions climbing.</p>
-          <div class="badge-grid">
-            <div class="mini-card">10+ years full-funnel delivery</div>
-            <div class="mini-card">Google & Meta certified</div>
-            <div class="mini-card">Dedicated strategist pods</div>
-            <div class="mini-card">Performance SLAs</div>
-          </div>
-          <div class="cta-bar" style="margin-top:18px;">
-            <a class="btn btn-primary" href="#contact">Talk to a strategist</a>
-            <a class="btn btn-outline" href="#services">See services</a>
-          </div>
+      <div class="section-header">
+        <div class="badge">Why choose Saletify</div>
+        <h2>10+ years of full-funnel experience, distilled for faster wins.</h2>
+        <p class="lead">Our CRO-first playbooks keep the focus on revenue: faster qualification, stronger retention, and creative that’s easy to test and scale.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <span class="why-label">MQL growth</span>
+          <div class="why-value">+48%</div>
+          <p class="muted">average within 90 days</p>
         </div>
-        <div class="hero-card">
-          <h3 style="margin-top:0;">How we operate</h3>
-          <ul style="color:var(--muted); line-height:1.8; padding-left:18px;">
-            <li>Discovery, roadmap, and quick-win sprints</li>
-            <li>Weekly experiment reviews with clear owners</li>
-            <li>Dashboards that tie every action to revenue</li>
-            <li>Quarterly growth models with budget scenarios</li>
-          </ul>
+        <div class="why-card">
+          <span class="why-label">Experience</span>
+          <div class="why-value">10+ yrs</div>
+          <p class="muted">full-funnel performance</p>
+        </div>
+        <div class="why-card">
+          <span class="why-label">Managed ad spend</span>
+          <div class="why-value">$25M+</div>
+          <p class="muted">across B2B &amp; D2C</p>
+        </div>
+        <div class="why-card">
+          <span class="why-label">Client happiness</span>
+          <div class="why-value">4.9/5</div>
+          <p class="muted">quarterly NPS</p>
+        </div>
+        <div class="why-card">
+          <span class="why-label">Renewals</span>
+          <div class="why-value">92%</div>
+          <p class="muted">clients renew for multi-quarter engagements</p>
+        </div>
+        <div class="why-card">
+          <span class="why-label">Turnaround</span>
+          <div class="why-value">Under 24 hrs</div>
+          <p class="muted">to receive your tailored plan</p>
+        </div>
+        <div class="why-card">
+          <span class="why-label">Playbooks</span>
+          <div class="why-value">Multi-industry</div>
+          <p class="muted">B2B, ecommerce, and SaaS ready</p>
+        </div>
+        <div class="why-card accent">
+          <span class="why-label">Next step</span>
+          <div class="why-value">Talk to a strategist</div>
+          <p class="muted">We’ll map your first 90 days and budget scenarios.</p>
+          <a class="btn btn-primary" href="#contact" style="width:100%; margin-top:8px;">Book my plan</a>
         </div>
       </div>
     </section>
@@ -1090,63 +1208,50 @@
         <h2>Our happy clients</h2>
         <p class="lead">Teams that count on Saletify for transparent reporting and measurable growth.</p>
       </div>
-      <div class="client-grid">
-        <div class="client-card">
-          <img src="https://images.unsplash.com/photo-1503389152951-9f343605f61e?auto=format&fit=crop&w=400&q=60" alt="Alfa Laval" />
-          <strong>Alfa Laval</strong>
+      <div class="client-showcase">
+        <div class="client-intro">
+          <div class="badge">Client-first partnerships</div>
+          <h3>Trusted by brands that demand clarity.</h3>
+          <p class="muted">Predictable reporting, CRO-led creative, and agile squads who move in lockstep with your team.</p>
+          <ul class="client-points">
+            <li>ROAS and pipeline dashboards everyone can read.</li>
+            <li>On-brand creative with rapid test velocity.</li>
+            <li>Weekly experiments tied to revenue outcomes.</li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Join the roster</a>
         </div>
-        <div class="client-card">
-          <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=400&q=60" alt="Belden" />
-          <strong>Belden</strong>
+        <div class="client-rails" aria-label="Client logos">
+          <div class="client-column">
+            <div class="client-track">
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1503389152951-9f343605f61e?auto=format&fit=crop&w=400&q=60" alt="Alfa Laval" /><strong>Alfa Laval</strong></div>
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=400&q=60" alt="Belden" /><strong>Belden</strong></div>
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=400&q=60" alt="Koel Care" /><strong>Koel Care</strong></div>
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=400&q=60" alt="Quickinsure" /><strong>Quickinsure</strong></div>
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1503389152951-9f343605f61e?auto=format&fit=crop&w=400&q=60" alt="Alfa Laval" aria-hidden="true" /><strong aria-hidden="true">Alfa Laval</strong></div>
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=400&q=60" alt="Belden" aria-hidden="true" /><strong aria-hidden="true">Belden</strong></div>
+            </div>
+          </div>
+          <div class="client-column reverse">
+            <div class="client-track">
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=400&q=60&sat=-40" alt="Heathroe Carrier" /><strong>Heathroe Carrier</strong></div>
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=400&q=60" alt="Amdhan" /><strong>Amdhan</strong></div>
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1529429617124-aee1f1650a5b?auto=format&fit=crop&w=400&q=60" alt="Sun n Sand" /><strong>Sun n Sand</strong></div>
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&q=60" alt="Kona Chauffeurs" /><strong>Kona Chauffeurs</strong></div>
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=400&q=60&sat=-40" alt="Heathroe Carrier" aria-hidden="true" /><strong aria-hidden="true">Heathroe Carrier</strong></div>
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=400&q=60" alt="Amdhan" aria-hidden="true" /><strong aria-hidden="true">Amdhan</strong></div>
+            </div>
+          </div>
+          <div class="client-column">
+            <div class="client-track">
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=400&q=60&sat=-20" alt="Softtech" /><strong>Softtech</strong></div>
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&q=60&sat=-30" alt="Acorn Fertility" /><strong>Acorn Fertility</strong></div>
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1529429617124-aee1f1650a5b?auto=format&fit=crop&w=400&q=60&sat=-10" alt="Shipyaari" /><strong>Shipyaari</strong></div>
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=400&q=60&sat=-30" alt="Dheya" /><strong>Dheya</strong></div>
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1503389152951-9f343605f61e?auto=format&fit=crop&w=400&q=60&sat=-25" alt="Kosmochem" /><strong>Kosmochem</strong></div>
+              <div class="client-logo-card"><img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=400&q=60&sat=-20" alt="Softtech" aria-hidden="true" /><strong aria-hidden="true">Softtech</strong></div>
+            </div>
+          </div>
         </div>
-        <div class="client-card">
-          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=400&q=60" alt="Koel Care" />
-          <strong>Koel Care</strong>
-        </div>
-        <div class="client-card">
-          <img src="https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=400&q=60" alt="Quickinsure" />
-          <strong>Quickinsure</strong>
-        </div>
-        <div class="client-card">
-          <img src="https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=400&q=60&sat=-40" alt="Heathroe Carrier" />
-          <strong>Heathroe Carrier</strong>
-        </div>
-        <div class="client-card">
-          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=400&q=60" alt="Amdhan" />
-          <strong>Amdhan</strong>
-        </div>
-        <div class="client-card">
-          <img src="https://images.unsplash.com/photo-1529429617124-aee1f1650a5b?auto=format&fit=crop&w=400&q=60" alt="Sun N Sand" />
-          <strong>Sun N Sand</strong>
-        </div>
-        <div class="client-card">
-          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&q=60" alt="Kona Chauffeurs" />
-          <strong>Kona Chauffeurs</strong>
-        </div>
-        <div class="client-card">
-          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=400&q=60&sat=-20" alt="Softtech" />
-          <strong>Softtech</strong>
-        </div>
-        <div class="client-card">
-          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=400&q=60&sat=-30" alt="Acorn Fertility" />
-          <strong>Acorn Fertility</strong>
-        </div>
-        <div class="client-card">
-          <img src="https://images.unsplash.com/photo-1529429617124-aee1f1650a5b?auto=format&fit=crop&w=400&q=60&sat=-10" alt="Shipyaari" />
-          <strong>Shipyaari</strong>
-        </div>
-        <div class="client-card">
-          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=400&q=60&sat=-30" alt="Dheya" />
-          <strong>Dheya</strong>
-        </div>
-        <div class="client-card">
-          <img src="https://images.unsplash.com/photo-1503389152951-9f343605f61e?auto=format&fit=crop&w=400&q=60&sat=-25" alt="Kosmochem" />
-          <strong>Kosmochem</strong>
-        </div>
-      </div>
-      <div class="cta-bar" style="margin-top:24px;">
-        <a class="btn btn-primary" href="#contact">Start a project</a>
-        <a class="btn btn-outline" href="#reviews">Read reviews</a>
       </div>
     </section>
 
