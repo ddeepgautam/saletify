@@ -6,17 +6,20 @@
   <title>Saletify | Digital Marketing That Delivers</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
   <style>
     :root {
-      --bg: #0c1222;
-      --card: #121a2f;
-      --accent: #00c2a8;
-      --accent-2: #6ddcff;
-      --text: #e8eef9;
-      --muted: #9aabc4;
-      --border: rgba(255, 255, 255, 0.08);
-      --shadow: 0 10px 50px rgba(0, 0, 0, 0.35);
+      --bg: #ffffff;
+      --card: #f6f8fb;
+      --accent: #ff6b35;
+      --accent-2: #0f4c81;
+      --text: #0f172a;
+      --muted: #4b5563;
+      --border: #e5e7eb;
+      --shadow: 0 10px 40px rgba(15, 27, 57, 0.08);
     }
 
     * {
@@ -25,10 +28,8 @@
 
     body {
       margin: 0;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at 20% 20%, rgba(109, 220, 255, 0.08), transparent 35%),
-        radial-gradient(circle at 80% 0%, rgba(0, 194, 168, 0.1), transparent 30%),
-        var(--bg);
+      font-family: "Poppins", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
@@ -37,9 +38,9 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      backdrop-filter: blur(12px);
-      background: rgba(12, 18, 34, 0.8);
+      background: rgba(255, 255, 255, 0.95);
       border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
     }
 
     .container {
@@ -68,7 +69,13 @@
       height: 38px;
     }
 
-    nav ul {
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-links {
       list-style: none;
       display: flex;
       align-items: center;
@@ -87,8 +94,24 @@
     }
 
     nav a:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.06);
+      color: var(--accent-2);
+      background: rgba(15, 76, 129, 0.08);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 1.1rem;
+      cursor: pointer;
     }
 
     .btn {
@@ -105,15 +128,15 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #06101d;
-      box-shadow: 0 12px 30px rgba(0, 194, 168, 0.25);
+      background: linear-gradient(135deg, var(--accent), #ff9566);
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(255, 107, 53, 0.3);
     }
 
     .btn-outline {
       color: var(--text);
       border: 1px solid var(--border);
-      background: transparent;
+      background: #fff;
     }
 
     .btn:hover {
@@ -121,11 +144,11 @@
     }
 
     .hero {
-      padding: 64px 0 36px;
+      padding: 72px 0 40px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 36px;
+      align-items: start;
     }
 
     .badge {
@@ -134,8 +157,8 @@
       gap: 8px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(109, 220, 255, 0.16);
-      color: var(--text);
+      background: rgba(15, 76, 129, 0.12);
+      color: var(--accent-2);
       font-weight: 600;
       letter-spacing: 0.3px;
     }
@@ -155,7 +178,7 @@
       font-size: 1.05rem;
       color: var(--muted);
       margin-bottom: 24px;
-      max-width: 640px;
+      max-width: 720px;
     }
 
     .pill-list {
@@ -168,8 +191,8 @@
     .pill {
       padding: 8px 14px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--text);
+      background: #eef2f7;
+      color: var(--accent-2);
       font-weight: 600;
       font-size: 0.95rem;
     }
@@ -226,18 +249,38 @@
       gap: 18px;
     }
 
+    .client-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+    }
+
+    .client-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(15, 27, 57, 0.06);
+      font-weight: 700;
+      color: var(--accent-2);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
     .card {
       background: var(--card);
       border: 1px solid var(--border);
       padding: 20px;
       border-radius: 18px;
       box-shadow: var(--shadow);
-      transition: transform 0.2s ease, border 0.2s ease;
+      transition: transform 0.2s ease, border 0.2s ease, box-shadow 0.2s ease;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      border-color: rgba(109, 220, 255, 0.4);
+      border-color: rgba(15, 76, 129, 0.35);
+      box-shadow: 0 15px 40px rgba(15, 76, 129, 0.12);
     }
 
     .card h3 {
@@ -256,8 +299,13 @@
       border-radius: 12px;
       display: grid;
       place-items: center;
-      background: rgba(109, 220, 255, 0.18);
-      color: #06101d;
+      background: rgba(255, 107, 53, 0.16);
+      color: var(--accent-2);
+    }
+
+    .muted {
+      color: var(--muted);
+      margin: 6px 0 0;
     }
 
     .cta-bar {
@@ -272,6 +320,12 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 22px;
       align-items: center;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
     }
 
     form {
@@ -290,7 +344,7 @@
       padding: 12px 14px;
       border-radius: 12px;
       border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.02);
+      background: #fff;
       color: var(--text);
       font-size: 1rem;
       font-family: inherit;
@@ -309,6 +363,26 @@
       box-shadow: var(--shadow);
     }
 
+    .hero-side {
+      display: grid;
+      gap: 14px;
+    }
+
+    .confidence {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      background: linear-gradient(135deg, rgba(15, 76, 129, 0.08), rgba(255, 107, 53, 0.08));
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .confidence strong {
+      font-size: 1.1rem;
+      color: var(--accent-2);
+    }
+
     .badge-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -320,7 +394,7 @@
       padding: 12px 14px;
       border-radius: 12px;
       border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.04);
+      background: #fff;
       font-weight: 600;
       display: flex;
       align-items: center;
@@ -337,21 +411,53 @@
       gap: 10px;
     }
 
+    .testimonial-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .testimonial-slider {
+      overflow: hidden;
+      position: relative;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: linear-gradient(120deg, rgba(15, 76, 129, 0.05), rgba(255, 107, 53, 0.05));
+      box-shadow: var(--shadow);
+    }
+
+    .slides {
+      display: flex;
+      transition: transform 0.6s ease;
+      width: calc(100% * 4);
+    }
+
+    .slide {
+      min-width: calc(100% / 2);
+      padding: 20px;
+    }
+
+    @media (max-width: 760px) {
+      .slide {
+        min-width: 100%;
+      }
+    }
+
     .avatar {
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: rgba(109, 220, 255, 0.18);
+      background: rgba(255, 107, 53, 0.16);
       display: grid;
       place-items: center;
       font-weight: 700;
-      color: #06101d;
+      color: var(--accent-2);
     }
 
     footer {
       padding: 30px 0 40px;
       border-top: 1px solid var(--border);
-      background: rgba(0, 0, 0, 0.18);
+      background: #f9fafb;
       margin-top: 40px;
     }
 
@@ -380,27 +486,59 @@
     }
 
     .banner {
-      background: linear-gradient(135deg, rgba(0, 194, 168, 0.2), rgba(109, 220, 255, 0.18));
+      background: linear-gradient(135deg, rgba(15, 76, 129, 0.08), rgba(255, 107, 53, 0.12));
       padding: 20px;
       border-radius: 16px;
-      border: 1px solid rgba(109, 220, 255, 0.35);
+      border: 1px solid rgba(15, 76, 129, 0.14);
       box-shadow: var(--shadow);
     }
 
-    @media (max-width: 640px) {
-      .navbar {
+    @media (max-width: 900px) {
+      .nav {
+        position: absolute;
+        top: 70px;
+        right: 16px;
+        left: 16px;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 14px;
+        box-shadow: var(--shadow);
         flex-direction: column;
-        gap: 10px;
-        height: auto;
-        padding: 12px 0;
+        gap: 12px;
+        transform: translateY(-24px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .nav.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav-links {
+        flex-direction: column;
         align-items: flex-start;
       }
 
-      nav ul {
+      .nav-actions {
         width: 100%;
+        justify-content: flex-start;
         flex-wrap: wrap;
       }
 
+      .menu-toggle {
+        display: inline-block;
+      }
+
+      .navbar {
+        position: relative;
+      }
+    }
+
+    @media (max-width: 640px) {
       .cta-bar {
         flex-direction: column;
       }
@@ -412,26 +550,32 @@
     <div class="container navbar">
       <div class="logo">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 46c0-13 10-23.5 24-23.5S56 33 56 46" stroke="#6DDCFF" stroke-width="4" stroke-linecap="round"/>
-          <path d="M20 26c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#00C2A8" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="32" cy="46" r="6" fill="#6DDCFF" />
+          <path d="M8 46c0-13 10-23.5 24-23.5S56 33 56 46" stroke="#0F4C81" stroke-width="4" stroke-linecap="round" />
+          <path d="M20 26c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#FF6B35" stroke-width="4" stroke-linecap="round" />
+          <circle cx="32" cy="46" r="6" fill="#FF6B35" />
         </svg>
         <span>Saletify</span>
       </div>
-      <nav>
-        <ul>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav-links">
           <li><a href="#services">Services</a></li>
           <li><a href="#process">Process</a></li>
+          <li><a href="#clients">Clients</a></li>
+          <li><a href="#case-studies">Case Studies</a></li>
           <li><a href="#results">Results</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a class="btn btn-primary" href="#contact">Book a Strategy Call</a></li>
         </ul>
+        <div class="nav-actions">
+          <a class="btn btn-outline" href="https://wa.me/918530666677?text=Hello%20team%20Saletify%2C%0AWe%20are%20looking%20for%20digital%20marketing%20services%20and%20would%20be%20interested%20in%20knowing%20how%20Saletify%20can%20help%20us." target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-primary" href="#contact">Book a Strategy Call</a>
+        </div>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero">
+    <section class="hero" id="top">
       <div>
         <div class="badge">Full-funnel growth marketing for ambitious brands</div>
         <h1>Digital marketing that fuels revenue, not just impressions.</h1>
@@ -443,11 +587,9 @@
           <span class="pill">Analytics & CRO</span>
         </div>
         <div class="cta-bar">
-          <a class="btn btn-primary" href="#contact">Launch a campaign</a>
+          <a class="btn btn-primary" href="#hero-form">Launch a campaign</a>
           <a class="btn btn-outline" href="#services">Explore solutions</a>
         </div>
-      </div>
-      <div class="hero-card">
         <div class="hero-grid">
           <div class="stat">
             <span class="stat-label">Avg. Increase in MQLs</span>
@@ -470,6 +612,79 @@
             <small class="muted">based on quarterly NPS</small>
           </div>
         </div>
+      </div>
+      <div class="hero-side">
+        <div class="form-card" id="hero-form">
+          <div class="badge" style="background:rgba(255,107,53,0.12); color:var(--accent);">Start with a quick brief</div>
+          <h3 style="margin:12px 0 6px;">Get a tailored growth plan</h3>
+          <p class="lead" style="font-size:0.98rem; margin-bottom:12px;">Tell us about your goals and we’ll share the fastest path to measurable revenue.</p>
+          <form action="https://formspree.io/f/xkgnkvpk" method="POST">
+            <div class="form-grid">
+              <div>
+                <label for="hero-name">Full name</label>
+                <input type="text" id="hero-name" name="name" placeholder="Alex Smith" required />
+              </div>
+              <div>
+                <label for="hero-email">Work email</label>
+                <input type="email" id="hero-email" name="email" placeholder="you@company.com" required />
+              </div>
+            </div>
+            <div>
+              <label for="hero-service">Primary goal</label>
+              <select id="hero-service" name="service">
+                <option>Scale qualified leads</option>
+                <option>Reduce CAC & improve ROAS</option>
+                <option>Build conversion-first experiences</option>
+                <option>Track & report revenue impact</option>
+              </select>
+            </div>
+            <div>
+              <label for="hero-message">What’s your timeline?</label>
+              <textarea id="hero-message" name="message" placeholder="Share launch dates, budgets, and success metrics"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Send my enquiry</button>
+          </form>
+        </div>
+        <div class="confidence">
+          <div>
+            <strong>92%</strong>
+            <p class="muted">clients renew for multi-quarter engagements</p>
+          </div>
+          <div>
+            <strong>Under 24 hrs</strong>
+            <p class="muted">to receive your bespoke plan</p>
+          </div>
+          <div>
+            <strong>Dedicated pod</strong>
+            <p class="muted">strategist, creatives & analysts</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="clients">
+      <div class="section-header">
+        <h2>Trusted by brands that demand measurable growth.</h2>
+        <p class="lead">From enterprise leaders to fast-scaling innovators, Saletify partners with teams that want accountable marketing and transparent performance.</p>
+      </div>
+      <div class="client-grid">
+        <div class="client-card">Alfa Laval</div>
+        <div class="client-card">Belden</div>
+        <div class="client-card">Koel Care</div>
+        <div class="client-card">Quickinsure</div>
+        <div class="client-card">Heathroe Carrier</div>
+        <div class="client-card">Amdhan</div>
+        <div class="client-card">Sun N Sand</div>
+        <div class="client-card">Kona Chauffeurs</div>
+        <div class="client-card">Softtech</div>
+        <div class="client-card">Acorn Fertility</div>
+        <div class="client-card">Shipyaari</div>
+        <div class="client-card">Dheya</div>
+        <div class="client-card">Kosmochem</div>
+      </div>
+      <div class="cta-bar" style="margin-top:24px;">
+        <a class="btn btn-primary" href="#hero-form">Get your growth plan</a>
+        <a class="btn btn-outline" href="#results">See our wins</a>
       </div>
     </section>
 
@@ -551,7 +766,7 @@
       </div>
     </section>
 
-    <section id="results">
+    <section id="case-studies">
       <div class="section-header">
         <h2>Real outcomes our clients rely on.</h2>
         <p class="lead">Case studies across ecommerce, SaaS, and enterprise brands delivering measurable impact.</p>
@@ -599,10 +814,32 @@
             <div class="mini-card">Dedicated strategist</div>
             <div class="mini-card">Performance SLAs</div>
           </div>
+          <div class="cta-bar" style="margin-top:18px;">
+            <a class="btn btn-primary" href="#contact">Talk to a strategist</a>
+            <a class="btn btn-outline" href="#process">See how we work</a>
+          </div>
         </div>
-        <div class="testimonials">
-          <div class="testimonial">
-            <div style="display:flex;align-items:center;gap:10px;">
+        <div class="hero-card">
+          <h3 style="margin-top:0;">What you get</h3>
+          <ul style="color:var(--muted); line-height:1.8; padding-left:18px;">
+            <li>Weekly experiment reviews and action plans</li>
+            <li>Dashboard access tied to revenue metrics</li>
+            <li>Creative, media, and analytics specialists aligned to you</li>
+            <li>Quarterly growth models with budget scenarios</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="slider-section">
+      <div class="section-header">
+        <h2>Clients love the momentum we build together.</h2>
+        <p class="lead">Hear how founders and marketing leaders describe working with Saletify.</p>
+      </div>
+      <div class="testimonial-slider">
+        <div class="slides">
+          <article class="testimonial slide">
+            <div class="testimonial-top">
               <div class="avatar">SC</div>
               <div>
                 <strong>Sarah Chen</strong><br />
@@ -610,9 +847,9 @@
               </div>
             </div>
             <p>“Saletify unlocked channels we thought were saturated. Their CRO and paid search collaboration doubled our qualified demos.”</p>
-          </div>
-          <div class="testimonial">
-            <div style="display:flex;align-items:center;gap:10px;">
+          </article>
+          <article class="testimonial slide">
+            <div class="testimonial-top">
               <div class="avatar">RA</div>
               <div>
                 <strong>Rahul Anand</strong><br />
@@ -620,7 +857,27 @@
               </div>
             </div>
             <p>“The dashboards and weekly sprints keep the team aligned. We see exactly how experiments impact revenue.”</p>
-          </div>
+          </article>
+          <article class="testimonial slide">
+            <div class="testimonial-top">
+              <div class="avatar">LK</div>
+              <div>
+                <strong>Leena Kapoor</strong><br />
+                <small>CMO, RetailVerse</small>
+              </div>
+            </div>
+            <p>“Their onboarding playbook had wins in week one. We saw a 38% lift in ROAS within the first month.”</p>
+          </article>
+          <article class="testimonial slide">
+            <div class="testimonial-top">
+              <div class="avatar">DP</div>
+              <div>
+                <strong>Dhruv Patel</strong><br />
+                <small>Founder, FinEdge</small>
+              </div>
+            </div>
+            <p>“Attribution finally makes sense. The team mapped our funnel and helped the board see marketing’s revenue impact.”</p>
+          </article>
         </div>
       </div>
     </section>
@@ -691,9 +948,9 @@
       <div>
         <div class="logo" style="margin-bottom: 10px;">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 46c0-13 10-23.5 24-23.5S56 33 56 46" stroke="#6DDCFF" stroke-width="4" stroke-linecap="round"/>
-            <path d="M20 26c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#00C2A8" stroke-width="4" stroke-linecap="round"/>
-            <circle cx="32" cy="46" r="6" fill="#6DDCFF" />
+            <path d="M8 46c0-13 10-23.5 24-23.5S56 33 56 46" stroke="#0F4C81" stroke-width="4" stroke-linecap="round"/>
+            <path d="M20 26c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#FF6B35" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="32" cy="46" r="6" fill="#FF6B35" />
           </svg>
           <span>Saletify</span>
         </div>
@@ -712,7 +969,7 @@
         <h3>Company</h3>
         <ul class="foot-nav">
           <li><a href="#process">How we work</a></li>
-          <li><a href="#results">Case studies</a></li>
+          <li><a href="#case-studies">Case studies</a></li>
           <li><a href="#contact">Get in touch</a></li>
         </ul>
       </div>
@@ -726,5 +983,51 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    const navLinks = document.querySelectorAll('.nav a');
+
+    if (menuToggle && nav) {
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+      });
+
+      navLinks.forEach((link) =>
+        link.addEventListener('click', () => {
+          nav.classList.remove('open');
+        })
+      );
+    }
+
+    const slider = document.querySelector('.testimonial-slider');
+    if (slider) {
+      const slidesWrapper = slider.querySelector('.slides');
+      const slides = slider.querySelectorAll('.slide');
+      let sliderIndex = 0;
+
+      const updateSlider = () => {
+        const perView = window.innerWidth > 760 ? 2 : 1;
+        const slideWidth = slider.offsetWidth / perView;
+        slidesWrapper.style.transform = `translateX(-${sliderIndex * slideWidth}px)`;
+      };
+
+      const nextSlide = () => {
+        const perView = window.innerWidth > 760 ? 2 : 1;
+        const maxIndex = slides.length - perView;
+        sliderIndex = sliderIndex >= maxIndex ? 0 : sliderIndex + 1;
+        updateSlider();
+      };
+
+      let sliderTimer = setInterval(nextSlide, 3000);
+      window.addEventListener('resize', () => {
+        updateSlider();
+      });
+      slider.addEventListener('mouseenter', () => clearInterval(sliderTimer));
+      slider.addEventListener('mouseleave', () => (sliderTimer = setInterval(nextSlide, 3000)));
+      updateSlider();
+    }
+  </script>
 </body>
 </html>
