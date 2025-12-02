@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saletify | Digital Marketing That Delivers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0c1222;
+      --card: #121a2f;
+      --accent: #00c2a8;
+      --accent-2: #6ddcff;
+      --text: #e8eef9;
+      --muted: #9aabc4;
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 10px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at 20% 20%, rgba(109, 220, 255, 0.08), transparent 35%),
+        radial-gradient(circle at 80% 0%, rgba(0, 194, 168, 0.1), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(12px);
+      background: rgba(12, 18, 34, 0.8);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .container {
+      width: min(1200px, 92vw);
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+    }
+
+    .logo svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 10px 12px;
+      border-radius: 12px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 14px;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #06101d;
+      box-shadow: 0 12px 30px rgba(0, 194, 168, 0.25);
+    }
+
+    .btn-outline {
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 64px 0 36px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(109, 220, 255, 0.16);
+      color: var(--text);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      line-height: 1.2;
+      margin: 16px 0;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin: 0 0 16px;
+    }
+
+    p.lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+      max-width: 640px;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0 24px;
+    }
+
+    .pill {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      display: grid;
+      gap: 6px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-size: 0.8rem;
+    }
+
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 20px;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, border 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(109, 220, 255, 0.4);
+    }
+
+    .card h3 {
+      margin: 12px 0 8px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    .icon-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(109, 220, 255, 0.18);
+      color: #06101d;
+    }
+
+    .cta-bar {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+      align-items: center;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text);
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .mini-card {
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .testimonial {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 18px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(109, 220, 255, 0.18);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: #06101d;
+    }
+
+    footer {
+      padding: 30px 0 40px;
+      border-top: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.18);
+      margin-top: 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .foot-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .foot-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .foot-nav a:hover {
+      color: var(--text);
+    }
+
+    .banner {
+      background: linear-gradient(135deg, rgba(0, 194, 168, 0.2), rgba(109, 220, 255, 0.18));
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(109, 220, 255, 0.35);
+      box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 640px) {
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+        height: auto;
+        padding: 12px 0;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        width: 100%;
+        flex-wrap: wrap;
+      }
+
+      .cta-bar {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 46c0-13 10-23.5 24-23.5S56 33 56 46" stroke="#6DDCFF" stroke-width="4" stroke-linecap="round"/>
+          <path d="M20 26c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#00C2A8" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="32" cy="46" r="6" fill="#6DDCFF" />
+        </svg>
+        <span>Saletify</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="btn btn-primary" href="#contact">Book a Strategy Call</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="badge">Full-funnel growth marketing for ambitious brands</div>
+        <h1>Digital marketing that fuels revenue, not just impressions.</h1>
+        <p class="lead">Partner with Saletify’s certified strategists for performance-driven SEO, paid media, and experience design crafted to convert. We combine data, creativity, and relentless optimization to keep you ahead of the curve.</p>
+        <div class="pill-list">
+          <span class="pill">Performance SEO</span>
+          <span class="pill">Conversion-led PPC</span>
+          <span class="pill">Experience Design</span>
+          <span class="pill">Analytics & CRO</span>
+        </div>
+        <div class="cta-bar">
+          <a class="btn btn-primary" href="#contact">Launch a campaign</a>
+          <a class="btn btn-outline" href="#services">Explore solutions</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-grid">
+          <div class="stat">
+            <span class="stat-label">Avg. Increase in MQLs</span>
+            <span class="stat-value">+48%</span>
+            <small class="muted">within the first 90 days</small>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Ad Spend Managed</span>
+            <span class="stat-value">$25M+</span>
+            <small class="muted">across B2B &amp; ecommerce</small>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Conversion Uplift</span>
+            <span class="stat-value">2.4x</span>
+            <small class="muted">average CRO impact</small>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Client Satisfaction</span>
+            <span class="stat-value">4.9/5</span>
+            <small class="muted">based on quarterly NPS</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="section-header">
+        <h2>Full-stack digital marketing services engineered for revenue.</h2>
+        <p class="lead">From search dominance to high-converting experiences, our specialists architect a cohesive growth engine so you can scale predictably.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="icon-circle">📈</div>
+          <h3>Performance SEO</h3>
+          <p>Technical foundations, content velocity, and backlink authority geared to rank and convert for the keywords that matter.</p>
+          <ul>
+            <li>Technical & on-page SEO sprints</li>
+            <li>Content strategy aligned to intent</li>
+            <li>Authority-building link programs</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="icon-circle">⚡</div>
+          <h3>Paid Media & PPC</h3>
+          <p>Precision-targeted campaigns across search, social, and programmatic with conversion-focused creative and bidding.</p>
+          <ul>
+            <li>Google, Meta, LinkedIn & programmatic</li>
+            <li>Landing page experimentation & CRO</li>
+            <li>Always-on optimization playbooks</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="icon-circle">🧭</div>
+          <h3>Brand & Experience Design</h3>
+          <p>Memorable digital experiences that streamline the buyer journey and reinforce your category position.</p>
+          <ul>
+            <li>UX/UI for high-intent flows</li>
+            <li>Conversion-driven content design</li>
+            <li>Rapid prototyping & user testing</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="icon-circle">📊</div>
+          <h3>Analytics & CRO</h3>
+          <p>Data infrastructure, dashboards, and experimentation that show exactly what’s driving growth.</p>
+          <ul>
+            <li>GA4, Tag Manager & server-side tracking</li>
+            <li>A/B testing pipelines and insights</li>
+            <li>Revenue-focused reporting</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="section-header">
+        <h2>Our proven, transparent growth process.</h2>
+        <p class="lead">We operate as an extension of your team with weekly insights, monthly roadmaps, and a clear view of the metrics that matter.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="icon-circle">🧠</div>
+          <h3>Discovery & Audit</h3>
+          <p>Deep dive into market, competitors, tracking, and funnel gaps to set a performance baseline.</p>
+        </div>
+        <div class="card">
+          <div class="icon-circle">🎯</div>
+          <h3>Strategy & Roadmap</h3>
+          <p>Build a prioritized action plan with channel mixes, budget allocation, and conversion milestones.</p>
+        </div>
+        <div class="card">
+          <div class="icon-circle">🚀</div>
+          <h3>Launch & Experiment</h3>
+          <p>Deploy campaigns, test creative, and refine landing experiences with rapid iteration.</p>
+        </div>
+        <div class="card">
+          <div class="icon-circle">📈</div>
+          <h3>Optimize & Scale</h3>
+          <p>Double down on winners, automate reporting, and expand into new markets with confidence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="results">
+      <div class="section-header">
+        <h2>Real outcomes our clients rely on.</h2>
+        <p class="lead">Case studies across ecommerce, SaaS, and enterprise brands delivering measurable impact.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>eCommerce: Fashion Collective</h3>
+          <p class="lead">+112% revenue from paid search in 6 months.</p>
+          <ul>
+            <li>Introduced tiered bidding and shopping feed optimization</li>
+            <li>Rolled out CRO on checkout & product pages</li>
+            <li>Unified analytics across ads, email, and onsite</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>SaaS: Workflow OS</h3>
+          <p class="lead">3x pipeline from enterprise accounts.</p>
+          <ul>
+            <li>ABM-aligned LinkedIn and search plays</li>
+            <li>Intent-led content hubs with lead magnets</li>
+            <li>Multi-touch attribution dashboards</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>D2C: Wellness Lab</h3>
+          <p class="lead">42% lift in subscriber LTV.</p>
+          <ul>
+            <li>Creative testing across social & display</li>
+            <li>Improved onboarding flows and email drips</li>
+            <li>Segment-based offers & personalization</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="banner grid-2">
+        <div>
+          <div class="badge">Why Saletify</div>
+          <h2>Certified specialists backed by transparent reporting.</h2>
+          <p class="lead">Every engagement includes channel-certified experts, weekly performance labs, and real-time dashboards so you’re never guessing where growth comes from.</p>
+          <div class="badge-grid">
+            <div class="mini-card">Google & Meta certified</div>
+            <div class="mini-card">Industry-specific playbooks</div>
+            <div class="mini-card">Dedicated strategist</div>
+            <div class="mini-card">Performance SLAs</div>
+          </div>
+        </div>
+        <div class="testimonials">
+          <div class="testimonial">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div class="avatar">SC</div>
+              <div>
+                <strong>Sarah Chen</strong><br />
+                <small>VP Marketing, GrowthOS</small>
+              </div>
+            </div>
+            <p>“Saletify unlocked channels we thought were saturated. Their CRO and paid search collaboration doubled our qualified demos.”</p>
+          </div>
+          <div class="testimonial">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div class="avatar">RA</div>
+              <div>
+                <strong>Rahul Anand</strong><br />
+                <small>Founder, Blends Co.</small>
+              </div>
+            </div>
+            <p>“The dashboards and weekly sprints keep the team aligned. We see exactly how experiments impact revenue.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="grid-2">
+        <div>
+          <div class="badge">Let’s plan your next quarter</div>
+          <h2>Book a 30-minute growth strategy call.</h2>
+          <p class="lead">Tell us about your goals and challenges. We’ll review your funnel, identify quick wins, and share a tailored roadmap.</p>
+          <ul>
+            <li>Custom channel mix recommendations</li>
+            <li>Budget and timeline clarity</li>
+            <li>Early experimentation ideas</li>
+          </ul>
+        </div>
+        <div class="form-card">
+          <form action="https://formspree.io/f/xkgnkvpk" method="POST">
+            <div>
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" placeholder="Alex Smith" required />
+            </div>
+            <div>
+              <label for="email">Work email</label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" required />
+            </div>
+            <div>
+              <label for="phone">Phone number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(+1) 234 567 8901" />
+            </div>
+            <div>
+              <label for="service">Primary service</label>
+              <select id="service" name="service">
+                <option>Performance SEO</option>
+                <option>Paid Media & PPC</option>
+                <option>Brand & Experience Design</option>
+                <option>Analytics & CRO</option>
+                <option>Full-funnel program</option>
+              </select>
+            </div>
+            <div>
+              <label for="message">Goals & challenges</label>
+              <textarea id="message" name="message" placeholder="Share your growth targets, audiences, and challenges"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Schedule my call</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="banner grid-2">
+        <div>
+          <div class="badge">Ready to accelerate?</div>
+          <h2>Let’s build your next growth story.</h2>
+          <p class="lead">From demand gen to conversion optimization, Saletify keeps your pipeline full and customers engaged.</p>
+        </div>
+        <div class="cta-bar" style="justify-content:flex-end; align-items:center;">
+          <a class="btn btn-outline" href="mailto:hello@saletify.com">hello@saletify.com</a>
+          <a class="btn btn-primary" href="#contact">Start a project</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="logo" style="margin-bottom: 10px;">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 46c0-13 10-23.5 24-23.5S56 33 56 46" stroke="#6DDCFF" stroke-width="4" stroke-linecap="round"/>
+            <path d="M20 26c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#00C2A8" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="32" cy="46" r="6" fill="#6DDCFF" />
+          </svg>
+          <span>Saletify</span>
+        </div>
+        <p style="color:var(--muted); max-width:320px;">Performance-led digital marketing, built to convert. Let’s create your next growth story.</p>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul class="foot-nav">
+          <li><a href="#services">Performance SEO</a></li>
+          <li><a href="#services">Paid Media & PPC</a></li>
+          <li><a href="#services">Experience Design</a></li>
+          <li><a href="#services">Analytics & CRO</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <ul class="foot-nav">
+          <li><a href="#process">How we work</a></li>
+          <li><a href="#results">Case studies</a></li>
+          <li><a href="#contact">Get in touch</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul class="foot-nav">
+          <li><a href="mailto:hello@saletify.com">hello@saletify.com</a></li>
+          <li><a href="tel:+12345678901">+1 (234) 567-8901</a></li>
+          <li><a href="#contact">Book a strategy call</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
