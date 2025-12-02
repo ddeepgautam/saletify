@@ -449,53 +449,156 @@
       gap: 10px;
     }
 
-    .testimonial {
-      background: #fff;
-      border: 1px solid var(--border);
-      padding: 18px;
-      border-radius: 16px;
-      box-shadow: var(--shadow);
+    .testimonial-showcase {
       display: grid;
-      gap: 10px;
+      gap: 22px;
     }
 
-    .testimonial-top {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .testimonial-slider {
-      overflow: hidden;
+    .testimonial-hero {
       position: relative;
+      overflow: hidden;
       border-radius: 18px;
       border: 1px solid var(--border);
-      background: linear-gradient(120deg, rgba(24, 85, 132, 0.05), rgba(233, 181, 56, 0.05));
+      background: linear-gradient(135deg, rgba(24, 85, 132, 0.06), rgba(233, 181, 56, 0.08));
       box-shadow: var(--shadow);
     }
 
-    .slides {
+    .testimonial-hero .slides {
       display: flex;
       transition: transform 0.6s ease;
     }
 
-    .slide {
+    .testimonial-hero .slide {
       min-width: 100%;
-      padding: 20px;
+      padding: clamp(18px, 4vw, 26px);
+      display: grid;
+      grid-template-columns: 1.1fr 1.4fr 180px;
+      gap: 18px;
+      align-items: center;
     }
 
-    .slider-indicators {
+    .testimonial-meta {
+      display: grid;
+      gap: 12px;
+    }
+
+    .testimonial-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(24, 85, 132, 0.14);
+      font-weight: 700;
+      color: var(--accent-2);
+    }
+
+    .stars {
+      color: #f59e0b;
+      letter-spacing: 1px;
+      font-size: 1rem;
+    }
+
+    .testimonial-highlight {
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px;
+      border: 1px solid rgba(24, 85, 132, 0.1);
+      box-shadow: 0 10px 24px rgba(24, 85, 132, 0.08);
+    }
+
+    .testimonial-highlight strong {
+      font-size: 1.3rem;
+      color: var(--accent-2);
+      display: block;
+    }
+
+    .testimonial-highlight small {
+      color: var(--muted);
+      display: block;
+      margin-top: 6px;
+    }
+
+    .testimonial-main {
+      display: grid;
+      gap: 14px;
+    }
+
+    .testimonial-main h3 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .testimonial-main p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .testimonial-face {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-face img {
+      width: 76px;
+      height: 76px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 3px solid #fff;
+      box-shadow: 0 8px 20px rgba(24, 85, 132, 0.2);
+    }
+
+    .testimonial-face small {
+      color: var(--muted);
+    }
+
+    .review-card {
+      display: grid;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .review-card h4 {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    .review-card strong {
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    .review-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .hero-indicators {
       display: flex;
       justify-content: center;
       gap: 10px;
-      padding: 12px 0 18px;
+      padding: 10px 0 16px;
     }
 
     .dash {
       position: relative;
-      width: 34px;
+      width: 36px;
       height: 4px;
-      background: rgba(24, 85, 132, 0.15);
+      background: rgba(24, 85, 132, 0.18);
       border-radius: 999px;
       overflow: hidden;
     }
@@ -520,17 +623,6 @@
       width: 0;
       background: linear-gradient(135deg, var(--accent-2), var(--accent));
       transition: width 3s linear;
-    }
-
-    .avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(24, 85, 132, 0.12);
-      display: grid;
-      place-items: center;
-      font-weight: 700;
-      color: var(--accent-2);
     }
 
     footer {
@@ -570,6 +662,20 @@
       border-radius: 16px;
       border: 1px solid rgba(24, 85, 132, 0.14);
       box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 960px) {
+      .testimonial-hero .slide {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonial-highlight:last-child {
+        order: 3;
+      }
+
+      .testimonial-main {
+        order: 2;
+      }
     }
 
     @media (max-width: 900px) {
@@ -952,46 +1058,128 @@
 
     <section id="results" class="slider-section">
       <div class="section-header">
-        <h2>Clients love the momentum we build together.</h2>
-        <p class="lead">Hear how founders and marketing leaders describe working with Saletify.</p>
+        <h2>See how companies like yours succeed with Saletify.</h2>
+        <p class="lead">Momentum, revenue, and trust from teams who count on us to grow every quarter.</p>
       </div>
-      <div class="testimonial-slider">
-        <div class="slides">
-          <article class="testimonial slide">
-            <div class="testimonial-top">
-              <div class="avatar">SC</div>
-              <div>
-                <strong>Sarah Chen</strong><br />
-                <small>VP Marketing, GrowthOS</small>
+      <div class="testimonial-showcase">
+        <div class="testimonial-hero">
+          <div class="slides">
+            <article class="slide">
+              <div class="testimonial-meta">
+                <span class="testimonial-pill"><span class="stars">★★★★★</span> Top-rated Growth Partner</span>
+                <div>
+                  <strong style="font-size:1.5rem; color:var(--accent-2);">25%+ YoY pipeline growth</strong>
+                  <p style="margin:6px 0 0; color:var(--muted);">Built on multi-market rollouts for SaaS and manufacturing.</p>
+                </div>
+                <div class="testimonial-highlight">
+                  <strong>“The critical partner we needed.”</strong>
+                  <small>Live dashboards, weekly experiments, and ruthless CRO discipline.</small>
+                </div>
               </div>
-            </div>
-            <p>“Saletify unlocked channels we thought were saturated. Their CRO and paid search collaboration doubled our qualified demos.”</p>
-          </article>
-          <article class="testimonial slide">
-            <div class="testimonial-top">
-              <div class="avatar">RA</div>
-              <div>
-                <strong>Rahul Anand</strong><br />
-                <small>Founder, Blends Co.</small>
+              <div class="testimonial-main">
+                <h3>“Saletify allowed us to expand into critical markets and still keep CAC in check.”</h3>
+                <p>“Their paid search and CRO teams operate like an extension of ours. We can see exactly how each sprint impacts revenue.”</p>
+                <div class="testimonial-face">
+                  <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80" alt="Portrait of client" />
+                  <div>
+                    <strong>Giuseppe Marrone</strong><br />
+                    <small>People Operations Lead, WorldSensing</small>
+                  </div>
+                </div>
               </div>
-            </div>
-            <p>“The dashboards and weekly sprints keep the team aligned. We see exactly how experiments impact revenue.”</p>
-          </article>
-          <article class="testimonial slide">
-            <div class="testimonial-top">
-              <div class="avatar">LK</div>
-              <div>
-                <strong>Leena Kapoor</strong><br />
-                <small>CMO, RetailVerse</small>
+              <div class="testimonial-highlight">
+                <strong>Read the full story</strong>
+                <small>From local pilots to global scale with predictable growth.</small>
               </div>
-            </div>
-            <p>“Their onboarding playbook had wins in week one. We saw a 38% lift in ROAS within the first month.”</p>
-          </article>
+            </article>
+            <article class="slide">
+              <div class="testimonial-meta">
+                <span class="testimonial-pill"><span class="stars">★★★★★</span> B2C Experience Wins</span>
+                <div>
+                  <strong style="font-size:1.5rem; color:var(--accent-2);">38% lift in ROAS</strong>
+                  <p style="margin:6px 0 0; color:var(--muted);">Creative testing and landing page velocity for retail.</p>
+                </div>
+                <div class="testimonial-highlight">
+                  <strong>“Week-one wins.”</strong>
+                  <small>Faster experimentation cycles with clean reporting.</small>
+                </div>
+              </div>
+              <div class="testimonial-main">
+                <h3>“Our acquisition costs dropped while revenue climbed. It felt like a cheat code.”</h3>
+                <p>“Saletify’s team set up clean analytics, fixed our funnels, and kept iterating. Every insight turned into a test.”</p>
+                <div class="testimonial-face">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Portrait of client" />
+                  <div>
+                    <strong>Leena Kapoor</strong><br />
+                    <small>CMO, RetailVerse</small>
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-highlight">
+                <strong>See the retail playbook</strong>
+                <small>Personalization, funnels, and creative that convert.</small>
+              </div>
+            </article>
+            <article class="slide">
+              <div class="testimonial-meta">
+                <span class="testimonial-pill"><span class="stars">★★★★★</span> SaaS Pipeline Power</span>
+                <div>
+                  <strong style="font-size:1.5rem; color:var(--accent-2);">3x enterprise demos</strong>
+                  <p style="margin:6px 0 0; color:var(--muted);">Account-based messaging across search and LinkedIn.</p>
+                </div>
+                <div class="testimonial-highlight">
+                  <strong>“From insights to revenue.”</strong>
+                  <small>ABM sequences and CRO rolled into one roadmap.</small>
+                </div>
+              </div>
+              <div class="testimonial-main">
+                <h3>“The dashboards show ROI in real time—finance signed off on bigger budgets.”</h3>
+                <p>“We finally have clarity on what moves pipeline. Saletify keeps testing, learning, and scaling what works.”</p>
+                <div class="testimonial-face">
+                  <img src="https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?auto=format&fit=crop&w=200&q=80" alt="Portrait of client" />
+                  <div>
+                    <strong>Rahul Anand</strong><br />
+                    <small>Founder, Blends Co.</small>
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-highlight">
+                <strong>Explore the SaaS case study</strong>
+                <small>ABM, CRO, and paid media orchestrated.</small>
+              </div>
+            </article>
+          </div>
         </div>
-        <div class="slider-indicators" aria-hidden="true">
+        <div class="hero-indicators" aria-hidden="true">
           <div class="dash"><span class="progress"></span></div>
           <div class="dash"><span class="progress"></span></div>
           <div class="dash"><span class="progress"></span></div>
+        </div>
+        <div class="review-grid">
+          <div class="review-card">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="stars">★★★★★</span>
+              <strong>4.9/5</strong>
+            </div>
+            <h4>Enterprise B2B</h4>
+            <p>“Clear reporting, proactive ideas, and measurable SQL impact.”</p>
+          </div>
+          <div class="review-card">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="stars">★★★★★</span>
+              <strong>4.8/5</strong>
+            </div>
+            <h4>Ecommerce & D2C</h4>
+            <p>“Creative refreshes and CRO boosted ROAS quarter after quarter.”</p>
+          </div>
+          <div class="review-card">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="stars">★★★★★</span>
+              <strong>4.9/5</strong>
+            </div>
+            <h4>Tech & SaaS</h4>
+            <p>“Pipeline visibility and ABM messaging that converts.”</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1115,7 +1303,7 @@
       );
     }
 
-    const slider = document.querySelector('.testimonial-slider');
+    const slider = document.querySelector('.testimonial-hero');
     if (slider) {
       const slidesWrapper = slider.querySelector('.slides');
       const slides = slider.querySelectorAll('.slide');
