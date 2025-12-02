@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saletify | Digital Marketing That Delivers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card: #f6f8fb;
+      --accent: #e9b538;
+      --accent-strong: #d29a15;
+      --accent-2: #185584;
+      --text: #0f172a;
+      --muted: #4b5563;
+      --border: #e5e7eb;
+      --shadow: 0 10px 40px rgba(15, 27, 57, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .container {
+      width: min(1200px, 92vw);
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .navbar {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 14px;
+      min-height: 76px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+    }
+
+    .logo svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 10px 12px;
+      border-radius: 12px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-2);
+      background: rgba(15, 76, 129, 0.08);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 14px;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(26, 85, 132, 0.25);
+    }
+
+    .btn-outline {
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 60px 0 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 36px;
+      align-items: start;
+    }
+
+    .hero-copy {
+      display: grid;
+      gap: 16px;
+    }
+
+    .partner-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .partner-label {
+      font-weight: 700;
+      color: var(--accent-2);
+      padding: 6px 10px;
+      border-radius: 12px;
+      background: rgba(24, 85, 132, 0.08);
+    }
+
+    .partner-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #f9fbff;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .partner-tag img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: rgba(24, 85, 132, 0.08);
+      color: var(--accent-2);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      line-height: 1.2;
+      margin: 16px 0;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin: 0 0 16px;
+    }
+
+    p.lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+      max-width: 720px;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0 24px;
+    }
+
+    .pill {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: var(--accent-2);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      display: grid;
+      gap: 6px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-size: 0.8rem;
+    }
+
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .client-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+    }
+
+    .client-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(24, 85, 132, 0.08);
+      display: grid;
+      gap: 10px;
+      align-items: center;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .client-card img {
+      width: 100%;
+      max-width: 120px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(24, 85, 132, 0.12);
+    }
+
+    .client-card strong {
+      color: var(--accent-2);
+      letter-spacing: 0.3px;
+    }
+
+    .client-shell {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      align-items: stretch;
+      background: linear-gradient(135deg, rgba(24, 85, 132, 0.05), rgba(233, 181, 56, 0.08));
+      border: 1px solid rgba(24, 85, 132, 0.12);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .client-copy {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .logo-wall {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(140px, 1fr));
+      gap: 10px;
+    }
+
+    .logo-column {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      padding: 10px;
+      box-shadow: 0 10px 24px rgba(24, 85, 132, 0.1);
+    }
+
+    .logo-track {
+      display: grid;
+      gap: 10px;
+      animation: scroll-down 18s linear infinite;
+    }
+
+    .logo-column.reverse .logo-track {
+      animation-name: scroll-up;
+    }
+
+    .logo-card {
+      display: grid;
+      gap: 8px;
+      align-items: center;
+      justify-items: center;
+      padding: 12px;
+      background: linear-gradient(135deg, rgba(24, 85, 132, 0.05), rgba(233, 181, 56, 0.05));
+      border-radius: 14px;
+      border: 1px solid rgba(24, 85, 132, 0.12);
+    }
+
+    .logo-card img {
+      width: 100%;
+      max-width: 120px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .logo-card span {
+      font-weight: 700;
+      color: var(--accent-2);
+    }
+
+    @keyframes scroll-down {
+      from {
+        transform: translateY(-50%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scroll-up {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-50%);
+      }
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 20px;
+      border-radius: 18px;
+      box-shadow: 0 12px 32px rgba(24, 85, 132, 0.08);
+      transition: transform 0.2s ease, border 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(24, 85, 132, 0.3);
+      box-shadow: 0 18px 44px rgba(24, 85, 132, 0.14);
+    }
+
+    .card h3 {
+      margin: 12px 0 8px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    .icon-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(24, 85, 132, 0.16), rgba(233, 181, 56, 0.14));
+      color: var(--accent-2);
+      font-size: 1.2rem;
+    }
+
+    .service-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(24, 85, 132, 0.15);
+      background: linear-gradient(160deg, rgba(24, 85, 132, 0.04), rgba(233, 181, 56, 0.05));
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(233, 181, 56, 0.15), transparent 35%),
+        radial-gradient(circle at 80% 0%, rgba(24, 85, 132, 0.14), transparent 35%);
+      pointer-events: none;
+    }
+
+    .service-card h3 {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card p,
+    .service-card ul {
+      position: relative;
+      z-index: 1;
+    }
+
+    .muted {
+      color: var(--muted);
+      margin: 6px 0 0;
+    }
+
+    .cta-bar {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+      align-items: center;
+    }
+
+    .why-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+
+    .why-list {
+      color: var(--muted);
+      line-height: 1.7;
+      padding-left: 18px;
+      margin: 10px 0;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .metric-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(24, 85, 132, 0.08);
+      display: grid;
+      gap: 6px;
+    }
+
+    .metric-card.highlight {
+      background: linear-gradient(135deg, rgba(233, 181, 56, 0.12), rgba(24, 85, 132, 0.12)), #fff;
+      border-color: rgba(24, 85, 132, 0.18);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      font-weight: 600;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-card {
+      background: linear-gradient(145deg, rgba(24, 85, 132, 0.05), rgba(233, 181, 56, 0.06)), #f6f9ff;
+      border: 1px solid #d7e3f4;
+      padding: 24px;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 14px;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.5);
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 20;
+    }
+
+    .modal-overlay.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal {
+      background: #fff;
+      border-radius: 16px;
+      max-width: 520px;
+      width: 100%;
+      padding: 20px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 12px;
+    }
+
+    .modal header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal h3 {
+      margin: 0;
+    }
+
+    .modal button.close {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 12px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .hero-form-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .hero-form-title h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .sub-note {
+      color: var(--muted);
+      margin: 0 0 14px;
+      font-size: 0.95rem;
+    }
+
+    .confidence {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      background: linear-gradient(135deg, rgba(24, 85, 132, 0.08), rgba(233, 181, 56, 0.08));
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .confidence strong {
+      font-size: 1.1rem;
+      color: var(--accent-2);
+    }
+
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .mini-card {
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+
+    .testimonial-showcase {
+      display: grid;
+      gap: 22px;
+    }
+
+    .testimonial-hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(24, 85, 132, 0.06), rgba(233, 181, 56, 0.08));
+      box-shadow: var(--shadow);
+    }
+
+    .testimonial-hero .slides {
+      display: flex;
+      transition: transform 0.6s ease;
+    }
+
+    .testimonial-hero .slide {
+      min-width: 100%;
+      padding: clamp(18px, 4vw, 26px);
+      display: grid;
+      grid-template-columns: 1.1fr 1.4fr 180px;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .testimonial-meta {
+      display: grid;
+      gap: 12px;
+    }
+
+    .testimonial-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(24, 85, 132, 0.14);
+      font-weight: 700;
+      color: var(--accent-2);
+    }
+
+    .stars {
+      color: #f59e0b;
+      letter-spacing: 1px;
+      font-size: 1rem;
+    }
+
+    .testimonial-highlight {
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px;
+      border: 1px solid rgba(24, 85, 132, 0.1);
+      box-shadow: 0 10px 24px rgba(24, 85, 132, 0.08);
+    }
+
+    .testimonial-highlight strong {
+      font-size: 1.3rem;
+      color: var(--accent-2);
+      display: block;
+    }
+
+    .testimonial-highlight small {
+      color: var(--muted);
+      display: block;
+      margin-top: 6px;
+    }
+
+    .testimonial-main {
+      display: grid;
+      gap: 14px;
+    }
+
+    .testimonial-main h3 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .testimonial-main p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .testimonial-face {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-face img {
+      width: 76px;
+      height: 76px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 3px solid #fff;
+      box-shadow: 0 8px 20px rgba(24, 85, 132, 0.2);
+    }
+
+    .testimonial-face small {
+      color: var(--muted);
+    }
+
+    .review-card {
+      display: grid;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .review-card h4 {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    .review-card strong {
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    .review-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+
+    .hero-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 0 16px;
+    }
+
+    .dash {
+      position: relative;
+      width: 36px;
+      height: 4px;
+      background: rgba(24, 85, 132, 0.18);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .dash::before {
+      content: '—';
+      position: absolute;
+      inset: -6px 0 0 0;
+      display: grid;
+      place-items: center;
+      color: rgba(24, 85, 132, 0.35);
+      font-size: 16px;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .dash .progress {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      transition: width 3s linear;
+    }
+
+    footer {
+      padding: 30px 0 40px;
+      border-top: 1px solid var(--border);
+      background: #f9fafb;
+      margin-top: 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .foot-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .foot-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .foot-nav a:hover {
+      color: var(--text);
+    }
+
+    .banner {
+      background: linear-gradient(135deg, rgba(24, 85, 132, 0.08), rgba(233, 181, 56, 0.12));
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(24, 85, 132, 0.14);
+      box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 960px) {
+      .testimonial-hero .slide {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonial-highlight:last-child {
+        order: 3;
+      }
+
+      .testimonial-main {
+        order: 2;
+      }
+
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        position: absolute;
+        top: 76px;
+        right: 16px;
+        left: 16px;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 14px;
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transform: translateY(-24px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .nav.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-actions {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .menu-toggle {
+        display: inline-block;
+      }
+
+      .navbar {
+        position: relative;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cta-bar {
+        flex-direction: column;
+      }
+
+      .logo-wall {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+
+      .logo-track {
+        animation: none;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 46c0-13 10-23.5 24-23.5S56 33 56 46" stroke="#185584" stroke-width="4" stroke-linecap="round" />
+          <path d="M20 26c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#E9B538" stroke-width="4" stroke-linecap="round" />
+          <circle cx="32" cy="46" r="6" fill="#E9B538" />
+        </svg>
+        <span>Saletify</span>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why">Why Saletify</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#clients">Clients</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a class="btn btn-outline" href="https://wa.me/918530666677?text=Hello%20team%20Saletify%2C%0AWe%20are%20looking%20for%20digital%20marketing%20services%20and%20would%20be%20interested%20in%20knowing%20how%20Saletify%20can%20help%20us." target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn-primary" href="#contact">Book a Strategy Call</a>
+        </div>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <div class="badge">Conversion-led marketing for teams that need results now</div>
+        <h1>Clear strategy. Faster execution. More revenue.</h1>
+        <p class="lead">Saletify pairs certified channel experts with CRO-led creative to turn traffic into sales. Minimal fluff, maximum clarity, and a partner who reports on revenue—not vanity metrics.</p>
+        <div class="partner-row" aria-label="Partner badges">
+          <span class="partner-label">Partnered with</span>
+          <span class="partner-tag"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Meta" />Meta Ads</span>
+          <span class="partner-tag"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" />Google Ads</span>
+          <span class="partner-tag"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" />Amazon Ads</span>
+        </div>
+        <div class="cta-bar">
+          <a class="btn btn-primary" href="#hero-form">Start my growth plan</a>
+          <a class="btn btn-outline" href="#services">View services</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="form-card" id="hero-form">
+          <div class="hero-form-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 7h16M4 12h16M4 17h10" stroke="#185584" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <h3>Book a demo</h3>
+          </div>
+          <p class="sub-note">Join 300+ growth-focused brands that trust Saletify for accountable marketing.</p>
+          <form action="https://formspree.io/f/xkgnkvpk" method="POST">
+            <div class="form-grid">
+              <div>
+                <label for="hero-first">First name</label>
+                <input type="text" id="hero-first" name="first" placeholder="Alex" required />
+              </div>
+              <div>
+                <label for="hero-last">Last name</label>
+                <input type="text" id="hero-last" name="last" placeholder="Smith" />
+              </div>
+            </div>
+            <div>
+              <label for="hero-email">Work email</label>
+              <input type="email" id="hero-email" name="email" placeholder="you@company.com" required />
+            </div>
+            <div>
+              <label for="hero-phone">Phone number</label>
+              <input type="tel" id="hero-phone" name="phone" placeholder="(+91) 85306 66677" required />
+            </div>
+            <div>
+              <label for="hero-company">Company name</label>
+              <input type="text" id="hero-company" name="company" placeholder="Your brand" />
+            </div>
+            <div>
+              <label for="hero-service">Primary goal</label>
+              <select id="hero-service" name="service">
+                <option>Scale qualified leads</option>
+                <option>Protect ROAS while scaling</option>
+                <option>Improve conversion rates</option>
+                <option>Analytics & reporting clarity</option>
+              </select>
+            </div>
+            <button class="btn btn-primary" type="submit" style="width:100%;">Submit</button>
+          </form>
+          <p class="muted" style="margin:10px 0 0; font-size:0.9rem;">We respond in under 24 hours. No spam—just a clear next step.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="section-header">
+        <h2>Full-stack digital marketing services engineered for revenue.</h2>
+        <p class="lead">From search dominance to high-converting experiences, our specialists architect a cohesive growth engine so you can scale predictably.</p>
+      </div>
+      <div class="cards">
+        <div class="card service-card">
+          <div class="icon-circle">📈</div>
+          <h3>Performance SEO</h3>
+          <p>Technical foundations, content velocity, and backlink authority geared to rank and convert for the keywords that matter.</p>
+          <ul>
+            <li>Technical & on-page SEO sprints</li>
+            <li>Content strategy aligned to intent</li>
+            <li>Authority-building link programs</li>
+          </ul>
+        </div>
+        <div class="card service-card">
+          <div class="icon-circle">⚡</div>
+          <h3>Paid Media & PPC</h3>
+          <p>Precision-targeted campaigns across search, social, and programmatic with conversion-focused creative and bidding.</p>
+          <ul>
+            <li>Google, Meta, LinkedIn & programmatic</li>
+            <li>Landing page experimentation & CRO</li>
+            <li>Always-on optimization playbooks</li>
+          </ul>
+        </div>
+        <div class="card service-card">
+          <div class="icon-circle">🧭</div>
+          <h3>Brand & Experience Design</h3>
+          <p>Memorable digital experiences that streamline the buyer journey and reinforce your category position.</p>
+          <ul>
+            <li>UX/UI for high-intent flows</li>
+            <li>Conversion-driven content design</li>
+            <li>Rapid prototyping & user testing</li>
+          </ul>
+        </div>
+        <div class="card service-card">
+          <div class="icon-circle">📊</div>
+          <h3>Analytics & CRO</h3>
+          <p>Data infrastructure, dashboards, and experimentation that show exactly what’s driving growth.</p>
+          <ul>
+            <li>GA4, Tag Manager & server-side tracking</li>
+            <li>A/B testing pipelines and insights</li>
+            <li>Revenue-focused reporting</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="section-header">
+        <div class="badge">Why choose Saletify</div>
+        <h2>10+ years of measurable growth expertise.</h2>
+        <p class="lead">Crisp strategies, transparent reporting, and senior channel specialists who deliver conversion-led results without the fluff.</p>
+      </div>
+      <div class="why-layout">
+        <div class="hero-card">
+          <h3 style="margin-top:0;">How we operate</h3>
+          <ul class="why-list">
+            <li>Discovery, roadmap, and quick-win sprints mapped to revenue goals.</li>
+            <li>Weekly experiment reviews with accountable owners and next steps.</li>
+            <li>Dashboards that show ROI in real time, not vanity metrics.</li>
+            <li>Quarterly growth models with budget scenarios and CRO baked in.</li>
+          </ul>
+          <div class="cta-bar" style="margin-top:10px;">
+            <a class="btn btn-primary" href="#contact">Talk to a strategist</a>
+            <a class="btn btn-outline" href="#services">See services</a>
+          </div>
+        </div>
+        <div class="metric-grid">
+          <div class="metric-card">
+            <span class="stat-label">MQL growth</span>
+            <div class="stat-value">+48%</div>
+            <p class="muted">average within 90 days</p>
+          </div>
+          <div class="metric-card">
+            <span class="stat-label">Experience</span>
+            <div class="stat-value">10+ yrs</div>
+            <p class="muted">full-funnel performance</p>
+          </div>
+          <div class="metric-card">
+            <span class="stat-label">Managed ad spend</span>
+            <div class="stat-value">$25M+</div>
+            <p class="muted">across B2B & D2C</p>
+          </div>
+          <div class="metric-card">
+            <span class="stat-label">Client happiness</span>
+            <div class="stat-value">4.9/5</div>
+            <p class="muted">quarterly NPS</p>
+          </div>
+          <div class="metric-card highlight">
+            <span class="stat-label">92%</span>
+            <div class="stat-value">renewal rate</div>
+            <p class="muted">clients renew for multi-quarter engagements</p>
+          </div>
+          <div class="metric-card">
+            <span class="stat-label">Under 24 hrs</span>
+            <div class="stat-value">to respond</div>
+            <p class="muted">to receive your tailored plan</p>
+          </div>
+          <div class="metric-card">
+            <span class="stat-label">Multi-industry</span>
+            <div class="stat-value">playbooks</div>
+            <p class="muted">B2B, ecommerce, and SaaS</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="section-header">
+        <h2>See the work—unlock detailed portfolios.</h2>
+        <p class="lead">Preview recent wins, then submit the quick form to view the full breakdown, budgets, and playbooks.</p>
+      </div>
+      <div class="cards">
+        <div class="card" data-portfolio-title="Ecommerce fashion collective" data-portfolio-result="+112% revenue from paid search with CRO-led landing tests" data-portfolio-detail="Tiered bidding, feed optimization, and checkout CRO combined with creative refresh cycles.">
+          <div class="icon-circle">🛍️</div>
+          <h3>Fashion Collective</h3>
+          <p class="muted">Scaling ROAS while launching new lines.</p>
+          <button class="btn btn-outline view-portfolio" type="button">View details</button>
+        </div>
+        <div class="card" data-portfolio-title="Enterprise SaaS pipeline" data-portfolio-result="3x enterprise demos from ABM search and LinkedIn" data-portfolio-detail="Account-based messaging, custom landing journeys, and sales-enablement nurture.">
+          <div class="icon-circle">💼</div>
+          <h3>Workflow OS</h3>
+          <p class="muted">ABM that connects ads to booked demos.</p>
+          <button class="btn btn-outline view-portfolio" type="button">View details</button>
+        </div>
+        <div class="card" data-portfolio-title="D2C wellness" data-portfolio-result="42% lift in subscriber LTV" data-portfolio-detail="Creative testing, onboarding flows, and personalized offers informed by analytics.">
+          <div class="icon-circle">🌿</div>
+          <h3>Wellness Lab</h3>
+          <p class="muted">Conversion design that keeps customers returning.</p>
+          <button class="btn btn-outline view-portfolio" type="button">View details</button>
+        </div>
+        <div class="card" data-portfolio-title="Manufacturing lead engine" data-portfolio-result="38% more qualified MQLs" data-portfolio-detail="Search dominance, technical SEO, and CRO to capture high-intent buyers.">
+          <div class="icon-circle">🏗️</div>
+          <h3>Industrial Hub</h3>
+          <p class="muted">Performance marketing for complex sales cycles.</p>
+          <button class="btn btn-outline view-portfolio" type="button">View details</button>
+        </div>
+      </div>
+      <div class="hero-card" id="portfolio-detail" style="margin-top:18px; display:none;">
+        <div class="badge">Portfolio unlocked</div>
+        <h3 id="portfolio-title"></h3>
+        <p class="lead" id="portfolio-result"></p>
+        <p id="portfolio-description" class="muted"></p>
+        <a class="btn btn-primary" href="#contact">Book the same playbook</a>
+      </div>
+    </section>
+
+    <section id="clients">
+      <div class="client-shell">
+        <div class="client-copy">
+          <div class="badge">Our happy clients</div>
+          <h2>Trusted by brands that demand clarity and performance.</h2>
+          <p class="lead">Growth teams across industries choose Saletify for accountable execution, fast iterations, and measurable revenue impact.</p>
+          <div class="cta-bar">
+            <a class="btn btn-primary" href="#portfolio">See case studies</a>
+            <a class="btn btn-outline" href="#contact">Plan my growth</a>
+          </div>
+        </div>
+        <div class="logo-wall" aria-label="Client logos marquee">
+          <div class="logo-column">
+            <div class="logo-track">
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=500&q=60" alt="Alfa Laval" /><span>Alfa Laval</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=60" alt="Belden" /><span>Belden</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1500336624523-d727130c3328?auto=format&fit=crop&w=500&q=60" alt="Koel Care" /><span>Koel Care</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=500&q=60" alt="Quickinsure" /><span>Quickinsure</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=500&q=60" alt="Heathroe Carrier" /><span>Heathroe Carrier</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=500&q=60" alt="Alfa Laval" /><span>Alfa Laval</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=60" alt="Belden" /><span>Belden</span></div>
+            </div>
+          </div>
+          <div class="logo-column reverse">
+            <div class="logo-track">
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=500&q=60" alt="Amdhan" /><span>Amdhan</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=500&q=60" alt="Sun N Sand" /><span>Sun N Sand</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=500&q=60" alt="Kona Chauffeurs" /><span>Kona Chauffeurs</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1582719478293-5cfb71f2e476?auto=format&fit=crop&w=500&q=60" alt="Softtech" /><span>Softtech</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=500&q=60" alt="Acorn Fertility" /><span>Acorn Fertility</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=500&q=60" alt="Amdhan" /><span>Amdhan</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=500&q=60" alt="Sun N Sand" /><span>Sun N Sand</span></div>
+            </div>
+          </div>
+          <div class="logo-column">
+            <div class="logo-track">
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=500&q=60" alt="Shipyaari" /><span>Shipyaari</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1529429617124-aee1f1650a5b?auto=format&fit=crop&w=500&q=60" alt="Dheya" /><span>Dheya</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=500&q=60" alt="Kosmochem" /><span>Kosmochem</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1500336624523-d727130c3328?auto=format&fit=crop&w=500&q=60" alt="Koel Care" /><span>Koel Care</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=500&q=60" alt="Quickinsure" /><span>Quickinsure</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=500&q=60" alt="Shipyaari" /><span>Shipyaari</span></div>
+              <div class="logo-card"><img src="https://images.unsplash.com/photo-1529429617124-aee1f1650a5b?auto=format&fit=crop&w=500&q=60" alt="Dheya" /><span>Dheya</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="slider-section">
+      <div class="section-header">
+        <h2>Customer reviews and results.</h2>
+        <p class="lead">Momentum, revenue, and trust from teams who count on us to grow every quarter.</p>
+      </div>
+      <div class="testimonial-showcase">
+        <div class="testimonial-hero">
+          <div class="slides">
+            <article class="slide">
+              <div class="testimonial-meta">
+                <span class="testimonial-pill"><span class="stars">★★★★★</span> Top-rated Growth Partner</span>
+                <div>
+                  <strong style="font-size:1.5rem; color:var(--accent-2);">25%+ YoY pipeline growth</strong>
+                  <p style="margin:6px 0 0; color:var(--muted);">Built on multi-market rollouts for SaaS and manufacturing.</p>
+                </div>
+                <div class="testimonial-highlight">
+                  <strong>“The critical partner we needed.”</strong>
+                  <small>Live dashboards, weekly experiments, and ruthless CRO discipline.</small>
+                </div>
+              </div>
+              <div class="testimonial-main">
+                <h3>“Saletify allowed us to expand into critical markets and still keep CAC in check.”</h3>
+                <p>“Their paid search and CRO teams operate like an extension of ours. We can see exactly how each sprint impacts revenue.”</p>
+                <div class="testimonial-face">
+                  <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80" alt="Portrait of client" />
+                  <div>
+                    <strong>Giuseppe Marrone</strong><br />
+                    <small>People Operations Lead, WorldSensing</small>
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-highlight">
+                <strong>Read the full story</strong>
+                <small>From local pilots to global scale with predictable growth.</small>
+              </div>
+            </article>
+            <article class="slide">
+              <div class="testimonial-meta">
+                <span class="testimonial-pill"><span class="stars">★★★★★</span> B2C Experience Wins</span>
+                <div>
+                  <strong style="font-size:1.5rem; color:var(--accent-2);">38% lift in ROAS</strong>
+                  <p style="margin:6px 0 0; color:var(--muted);">Creative testing and landing page velocity for retail.</p>
+                </div>
+                <div class="testimonial-highlight">
+                  <strong>“Week-one wins.”</strong>
+                  <small>Faster experimentation cycles with clean reporting.</small>
+                </div>
+              </div>
+              <div class="testimonial-main">
+                <h3>“Our acquisition costs dropped while revenue climbed. It felt like a cheat code.”</h3>
+                <p>“Saletify’s team set up clean analytics, fixed our funnels, and kept iterating. Every insight turned into a test.”</p>
+                <div class="testimonial-face">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Portrait of client" />
+                  <div>
+                    <strong>Leena Kapoor</strong><br />
+                    <small>CMO, RetailVerse</small>
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-highlight">
+                <strong>See the retail playbook</strong>
+                <small>Personalization, funnels, and creative that convert.</small>
+              </div>
+            </article>
+            <article class="slide">
+              <div class="testimonial-meta">
+                <span class="testimonial-pill"><span class="stars">★★★★★</span> SaaS Pipeline Power</span>
+                <div>
+                  <strong style="font-size:1.5rem; color:var(--accent-2);">3x enterprise demos</strong>
+                  <p style="margin:6px 0 0; color:var(--muted);">Account-based messaging across search and LinkedIn.</p>
+                </div>
+                <div class="testimonial-highlight">
+                  <strong>“From insights to revenue.”</strong>
+                  <small>ABM sequences and CRO rolled into one roadmap.</small>
+                </div>
+              </div>
+              <div class="testimonial-main">
+                <h3>“The dashboards show ROI in real time—finance signed off on bigger budgets.”</h3>
+                <p>“We finally have clarity on what moves pipeline. Saletify keeps testing, learning, and scaling what works.”</p>
+                <div class="testimonial-face">
+                  <img src="https://images.unsplash.com/photo-1524502397800-2eeaad7c3fe5?auto=format&fit=crop&w=200&q=80" alt="Portrait of client" />
+                  <div>
+                    <strong>Rahul Anand</strong><br />
+                    <small>Founder, Blends Co.</small>
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-highlight">
+                <strong>Explore the SaaS case study</strong>
+                <small>ABM, CRO, and paid media orchestrated.</small>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="hero-indicators" aria-hidden="true">
+          <div class="dash"><span class="progress"></span></div>
+          <div class="dash"><span class="progress"></span></div>
+          <div class="dash"><span class="progress"></span></div>
+        </div>
+        <div class="review-grid">
+          <div class="review-card">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="stars">★★★★★</span>
+              <strong>4.9/5</strong>
+            </div>
+            <h4>Enterprise B2B</h4>
+            <p>“Clear reporting, proactive ideas, and measurable SQL impact.”</p>
+          </div>
+          <div class="review-card">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="stars">★★★★★</span>
+              <strong>4.8/5</strong>
+            </div>
+            <h4>Ecommerce & D2C</h4>
+            <p>“Creative refreshes and CRO boosted ROAS quarter after quarter.”</p>
+          </div>
+          <div class="review-card">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="stars">★★★★★</span>
+              <strong>4.9/5</strong>
+            </div>
+            <h4>Tech & SaaS</h4>
+            <p>“ABM messaging and analytics we can defend in board meetings.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="grid-2">
+        <div>
+          <div class="badge">Let’s plan your next quarter</div>
+          <h2>Book a 30-minute growth strategy call.</h2>
+          <p class="lead">Tell us about your goals and challenges. We’ll review your funnel, identify quick wins, and share a tailored roadmap.</p>
+          <ul>
+            <li>Custom channel mix recommendations</li>
+            <li>Budget and timeline clarity</li>
+            <li>Early experimentation ideas</li>
+          </ul>
+        </div>
+        <div class="form-card">
+          <form action="https://formspree.io/f/xkgnkvpk" method="POST">
+            <div>
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" placeholder="Alex Smith" required />
+            </div>
+            <div>
+              <label for="email">Work email</label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" required />
+            </div>
+            <div>
+              <label for="phone">Phone number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(+1) 234 567 8901" required />
+            </div>
+            <div>
+              <label for="service">Primary service</label>
+              <select id="service" name="service">
+                <option>Performance SEO</option>
+                <option>Paid Media & PPC</option>
+                <option>Brand & Experience Design</option>
+                <option>Analytics & CRO</option>
+                <option>Full-funnel program</option>
+              </select>
+            </div>
+            <div>
+              <label for="message">Goals & challenges</label>
+              <textarea id="message" name="message" placeholder="Share your growth targets, audiences, and challenges"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Schedule my call</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="portfolio-modal" aria-hidden="true">
+    <div class="modal">
+      <header>
+        <div>
+          <div class="badge" style="margin-bottom:6px;">Unlock full portfolio</div>
+          <h3 style="margin:0;">Tell us about you</h3>
+          <p class="muted" style="margin:4px 0 0;">Name, email, and phone are required to view detailed case work.</p>
+        </div>
+        <button class="close" type="button" aria-label="Close portfolio form">✕</button>
+      </header>
+      <form id="portfolio-form">
+        <div class="form-grid">
+          <div>
+            <label for="portfolio-name">Name</label>
+            <input type="text" id="portfolio-name" name="name" placeholder="Your name" required />
+          </div>
+          <div>
+            <label for="portfolio-email">Email</label>
+            <input type="email" id="portfolio-email" name="email" placeholder="you@company.com" required />
+          </div>
+        </div>
+        <div>
+          <label for="portfolio-phone">Contact number</label>
+          <input type="tel" id="portfolio-phone" name="phone" placeholder="(+91) 85306 66677" required />
+        </div>
+        <button class="btn btn-primary" type="submit" style="width:100%;">View portfolio</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="logo" style="margin-bottom: 10px;">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 46c0-13 10-23.5 24-23.5S56 33 56 46" stroke="#185584" stroke-width="4" stroke-linecap="round" />
+            <path d="M20 26c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#E9B538" stroke-width="4" stroke-linecap="round" />
+            <circle cx="32" cy="46" r="6" fill="#E9B538" />
+          </svg>
+          <span>Saletify</span>
+        </div>
+        <p style="color:var(--muted); max-width:320px;">Performance-led digital marketing, built to convert. Let’s create your next growth story.</p>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul class="foot-nav">
+          <li><a href="#services">Performance SEO</a></li>
+          <li><a href="#services">Paid Media & PPC</a></li>
+          <li><a href="#services">Experience Design</a></li>
+          <li><a href="#services">Analytics & CRO</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Company</h3>
+        <ul class="foot-nav">
+          <li><a href="#why">How we work</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Get in touch</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul class="foot-nav">
+          <li><a href="mailto:hello@saletify.com">hello@saletify.com</a></li>
+          <li><a href="tel:+12345678901">+1 (234) 567-8901</a></li>
+          <li><a href="#contact">Book a strategy call</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    const navLinks = document.querySelectorAll('.nav a');
+
+    if (menuToggle && nav) {
+      menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+      });
+
+      navLinks.forEach((link) =>
+        link.addEventListener('click', () => {
+          nav.classList.remove('open');
+        })
+      );
+    }
+
+    const portfolioModal = document.getElementById('portfolio-modal');
+    const portfolioForm = document.getElementById('portfolio-form');
+    const closeModalBtn = portfolioModal?.querySelector('button.close');
+    const detailCard = document.getElementById('portfolio-detail');
+    const detailTitle = document.getElementById('portfolio-title');
+    const detailResult = document.getElementById('portfolio-result');
+    const detailDescription = document.getElementById('portfolio-description');
+    let activePortfolio;
+
+    const openModal = (card) => {
+      activePortfolio = card;
+      if (portfolioModal) {
+        portfolioModal.classList.add('show');
+        portfolioModal.setAttribute('aria-hidden', 'false');
+      }
+    };
+
+    const closeModal = () => {
+      if (portfolioModal) {
+        portfolioModal.classList.remove('show');
+        portfolioModal.setAttribute('aria-hidden', 'true');
+      }
+    };
+
+    document.querySelectorAll('.view-portfolio').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.card');
+        openModal(card);
+      });
+    });
+
+    closeModalBtn?.addEventListener('click', closeModal);
+
+    portfolioForm?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const name = portfolioForm.querySelector('#portfolio-name');
+      const email = portfolioForm.querySelector('#portfolio-email');
+      const phone = portfolioForm.querySelector('#portfolio-phone');
+
+      if (!name.value || !email.value || !phone.value) {
+        return;
+      }
+
+      if (activePortfolio && detailCard) {
+        detailTitle.textContent = activePortfolio.dataset.portfolioTitle;
+        detailResult.textContent = activePortfolio.dataset.portfolioResult;
+        detailDescription.textContent = activePortfolio.dataset.portfolioDetail;
+        detailCard.style.display = 'block';
+        closeModal();
+        detailCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+
+    const slider = document.querySelector('.testimonial-hero');
+    if (slider) {
+      const slidesWrapper = slider.querySelector('.slides');
+      const slides = slider.querySelectorAll('.slide');
+      const indicators = slider.querySelectorAll('.dash .progress');
+      let sliderIndex = 0;
+      const slideDuration = 3000;
+
+      const syncIndicators = () => {
+        indicators.forEach((bar, idx) => {
+          bar.style.width = idx === sliderIndex ? '100%' : '0%';
+        });
+      };
+
+      const updateSlider = () => {
+        const slideWidth = slider.offsetWidth;
+        slidesWrapper.style.transform = `translateX(-${sliderIndex * slideWidth}px)`;
+        syncIndicators();
+      };
+
+      const nextSlide = () => {
+        sliderIndex = (sliderIndex + 1) % slides.length;
+        updateSlider();
+      };
+
+      let sliderTimer = setInterval(nextSlide, slideDuration);
+      window.addEventListener('resize', updateSlider);
+      slider.addEventListener('mouseenter', () => clearInterval(sliderTimer));
+      slider.addEventListener('mouseleave', () => (sliderTimer = setInterval(nextSlide, slideDuration)));
+      updateSlider();
+    }
+  </script>
+</body>
+</html>
